@@ -10,7 +10,17 @@ export default function About() {
           <p className="opacity-80 font-bold text-xl my-5">
             احنا أول منصة محتوى طبي عربي في قالب ترفيهي لذيذ.. جينا علشان نلوّن الحياة بالصحة…ونخلي الطب أخف، أبسط، وألذّ!
           </p>
-          <img src="/images/احنا مين.jpg" alt="" className="w-[400px] mx-auto" />
+          <div className="flex justify-center my-10">
+            <img src="/images/احنا مين.jpg" alt="احنا مين" className="rounded-lg shadow-lg max-w-full h-auto" />
+          </div>
+          <div className="text-center">
+            <p className="text-lg opacity-90 mb-5">
+              نحن فريق من المتخصصين في المجال الطبي والإعلامي، نسعى لتقديم المحتوى الطبي بطريقة مبسطة وممتعة للجميع.
+            </p>
+            <p className="text-lg opacity-90">
+              هدفنا هو نشر الوعي الصحي بين الناس وجعل المعلومات الطبية في متناول الجميع.
+            </p>
+          </div>
         </div>
       </div>
     </Layout>

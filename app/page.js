@@ -1,62 +1,45 @@
-
 import Layout from '../components/Layout'
 import { Button } from '../components/ui/button'
+
+export const metadata = {
+  title: 'أبيض X أزرق - الرئيسية',
+  description: 'موقع إخباري متميز',
+}
 
 export default function Home() {
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center">أهلاً بكم في موقعنا</h1>
-        
-        <div className="mb-8">
-          <Button className="bg-[#3454a5] hover:bg-[#2a4494] text-white">
-            اختبار زر shadcn
-          </Button>
+      <div className="bg-[#ededed] p-5 relative">
+        {/* Test section for Tailwind and shadcn */}
+        <div className="bg-white p-6 mb-8 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Tailwind & shadcn Test</h2>
+          <div className="flex flex-wrap gap-4 mb-4">
+            <Button>Default Button</Button>
+            <Button variant="destructive">Destructive</Button>
+            <Button variant="outline">Outline</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button variant="link">Link</Button>
+          </div>
+          <div className="flex gap-4">
+            <Button size="sm">Small</Button>
+            <Button size="default">Default</Button>
+            <Button size="lg">Large</Button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-right">
-                <p className="bg-[#3454a5] text-white font-semibold p-1 rounded-md w-fit">
-                  خلي بالك
-                </p>
-                <p className="font-thin text-gray-600">22 مايو 2025</p>
-              </div>
-              <div className="max-w-[160px] max-h-[200px]">
-                <img 
-                  src="/images/post-2.jpg" 
-                  className="shadow-lg object-cover rounded-lg w-full" 
-                  alt="" 
-                />
-              </div>
-            </div>
-            <a 
-              className="font-bold text-lg hover:text-[#3454a5] transition-all duration-300"
-              href=""
-            >
-              ماغك مش هتساعدك
-            </a>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <div className="h-[300px] relative text-end">
-              <img 
-                className="w-full rounded-lg h-full object-cover" 
-                src="/images/post-5.jpg" 
-                alt="" 
-              />
-              <div className="absolute p-5 pt-10 left-0 w-full rounded-lg bottom-0 bg-gradient-to-t from-black from-50% to-transparent">
-                <p className="text-white text-sm my-3">
-                  <span className="text-white font-semibold bg-[#3454a5] p-1 rounded-md">
-                    خلي بالك
-                  </span>
-                  - 21 مايو 2025
-                </p>
-                <p className="text-white text-xl font-bold my-2">
-                  بمناسبة الذكرى السنوية للموقع
-                </p>
-              </div>
+        <div className="md:w-[80%] mx-auto">
+          <div className="cards flex justify-around">
+            <div className="card md:w-[30%] w-[70%]">
+              <p className="bg-[#3454a5] text-white font-semibold p-2 rounded-md w-fit ms-auto">
+                خلي بالك
+              </p>
+              <a href="#" className="transition-all duration-300 hover:text-[#3454a5] my-2 block">
+                إطلاق مبادرة "من البردي الأخضر إلى الفن الخالد" بمشاركة اليونسكو
+              </a>
+              <p className="text-gray-600">
+                تم إطلاق مبادرة جديدة تهدف إلى الحفاظ على التراث الثقافي
+              </p>
             </div>
           </div>
         </div>

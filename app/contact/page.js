@@ -12,32 +12,33 @@ export default function Contact() {
     <Layout>
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-8 text-center">اتصل بنا</h1>
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-2xl mx-auto">
           <form className="space-y-6">
             <div>
               <label className="block text-sm font-medium mb-2">الاسم</label>
               <input 
                 type="text" 
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3454a5]"
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="أدخل اسمك"
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">البريد الإلكتروني</label>
               <input 
                 type="email" 
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3454a5]"
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="أدخل بريدك الإلكتروني"
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2">الرسالة</label>
               <textarea 
                 rows="4" 
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3454a5]"
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="اكتب رسالتك هنا"
               ></textarea>
             </div>
-            <Button className="w-full bg-[#3454a5] hover:bg-[#2a4494] text-white">
-              إرسال الرسالة
-            </Button>
+            <Button className="w-full">إرسال الرسالة</Button>
           </form>
         </div>
       </div>

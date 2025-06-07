@@ -1,3 +1,4 @@
+
 import Link from 'next/link'
 
 export default function Layout({ children, title = "أبيض X أزرق" }) {
@@ -16,9 +17,6 @@ export default function Layout({ children, title = "أبيض X أزرق" }) {
         </div>
       </nav>
       <main>{children}</main>
-    </div>
-  )
-}ildren}</main>
     </div>
   )
 }

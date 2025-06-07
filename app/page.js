@@ -1,5 +1,4 @@
 
-import Layout from '../components/Layout'
 import { Button } from '../components/ui/button'
 
 export const metadata = {
@@ -9,7 +8,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <Layout>
+    <div>
       {/* Test section for Tailwind and shadcn */}
       <div className="bg-white p-6 mb-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Tailwind & shadcn Test</h2>
@@ -245,6 +244,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </Layout>
+    </div>
   )
 }

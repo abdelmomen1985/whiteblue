@@ -1,0 +1,28 @@
+meta {
+  name: Articles
+  type: graphql
+  seq: 3
+}
+
+post {
+  url: http://34.56.54.244:48085/graphql
+  body: graphql
+  auth: bearer
+}
+
+auth:bearer {
+  token: FkGcOk8Uudxlb41YmUEk4Kd5wPH92vI7
+}
+
+body:graphql {
+  {
+    articles {
+      title
+     	article_tags {
+        tags_id {
+          tag
+        }
+      } 
+    }
+  }
+}

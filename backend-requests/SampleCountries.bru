@@ -1,0 +1,20 @@
+meta {
+  name: SampleCountries
+  type: graphql
+  seq: 2
+}
+
+post {
+  url: https://countries.trevorblades.com/
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  query {
+    countries {
+      name
+    }
+  }
+  
+}

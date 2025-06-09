@@ -1,55 +1,49 @@
 import { Button } from "../components/ui/button";
+import { getArticlesByTag } from "../lib/graphql-client";
 
 export const metadata = {
   title: "أبيض X أزرق - الرئيسية",
   description: "موقع إخباري متميز",
 };
 
-export default function Home() {
+export default async function Home() {
+  const tagName = "خلي بالك";
+  const articles = await getArticlesByTag(tagName);
+  // Only show up to 3 cards, most recent first
+  const visibleArticles = (articles || []).slice(-3).reverse();
   return (
     <div>
       <div className="bg-[#ededed] p-5 relative">
         <div className="md:w-[80%] mx-auto">
+          {/* Dynamic Article Cards - Server Side */}
           <div className="cards flex justify-around">
-            <div className="card md:w-[30%] w-[70%]">
-              <p className="bg-[#3454a5] text-white font-semibold p-2 rounded-md w-fit ms-auto">
-                خلي بالك
-              </p>
-              <a
-                href="#"
-                className="transition-all duration-300 hover:text-[#3454a5] my-2 block"
+            {visibleArticles.map((article, idx) => (
+              <div
+                className={`card w-[70%] md:w-[30%] ${idx === 1 ? "md:block hidden" : ""} ${idx === 2 ? "lg:block hidden" : ""}`}
+                key={article.id}
               >
-                إطلاق مبادرة "من البردي الأخضر إلى الفن الخالد" بمشاركة اليونسكو
-              </a>
-              <p className="opacity-70 text-sm">19 May 2025</p>
-            </div>
-            <div className="card md:block hidden md:w-[30%]">
-              <p className="bg-[#3454a5] text-white font-semibold p-2 rounded-md w-fit ms-auto">
-                خلي بالك
-              </p>
-              <a
-                href="#"
-                className="transition-all duration-300 hover:text-[#3454a5] my-2 block"
-              >
-                رسميًا.. شكوى من نادي الزمالك للمجلس الأعلى للإعلام ضد إعلان
-                "اتصالات"
-              </a>
-              <p className="opacity-70 text-sm">19 May 2025</p>
-            </div>
-            <div className="card lg:block hidden w-[30%]">
-              <p className="bg-[#3454a5] text-white font-semibold p-2 rounded-md w-fit ms-auto">
-                خلي بالك
-              </p>
-              <a
-                href="#"
-                className="transition-all duration-300 hover:text-[#3454a5] my-2 block"
-              >
-                منع سير الميكروباص على الطريق الدائري بشكل جزئ بداية من يوم 1
-                يونيو
-              </a>
-              <p className="opacity-70 text-sm">19 May 2025</p>
-            </div>
+                <p className="bg-[#3454a5] text-white font-semibold p-2 rounded-md w-fit ms-auto">
+                  {tagName}
+                </p>
+                <a
+                  href={article.slug ? `/articles/${article.slug}` : "#"}
+                  className="transition-all duration-300 hover:text-[#3454a5] my-2 block"
+                >
+                  {article.title}
+                </a>
+                <p className="opacity-70 text-sm">
+                  {article.created_at
+                    ? new Date(article.created_at).toLocaleDateString("ar-EG", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })
+                    : ""}
+                </p>
+              </div>
+            ))}
           </div>
+
         </div>
         <a href="#">
           <i className="transition-all duration-300 text-white hover:bg-[#3454a5] rounded-full bg-gray-300 p-2 px-3 absolute -translate-y-1/2 top-1/2 right-10 md:right-28 fa-solid fa-angle-right"></i>

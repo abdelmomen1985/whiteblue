@@ -1,14 +1,14 @@
-import { createClient, everything } from '../src/generated/genql'
+import { createClient, everything } from "../src/generated/genql";
 
 // Create a GraphQL client instance
 // Using the real API endpoint from Articles.bru
 const client = createClient({
-  url: '/api/proxy/graphql',
+  url: "http://34.56.54.244:48085/graphql",
   headers: {
-    'Authorization': 'Bearer FkGcOk8Uudxlb41YmUEk4Kd5wPH92vI7',
-    'Content-Type': 'application/json',
+    Authorization: "Bearer FkGcOk8Uudxlb41YmUEk4Kd5wPH92vI7",
+    "Content-Type": "application/json",
   },
-})
+});
 
 // Fetch all articles with tags
 export async function getAllArticles(limit?: number, offset?: number) {
@@ -37,16 +37,15 @@ export async function getAllArticles(limit?: number, offset?: number) {
           tags_id: {
             id: true,
             tag: true,
-            slug: true,
           },
         },
       },
-    })
-    
-    return result.articles
+    });
+
+    return result.articles;
   } catch (error) {
-    console.error('Error fetching articles:', error)
-    throw error
+    console.error("Error fetching articles:", error);
+    throw error;
   }
 }
 
@@ -77,16 +76,15 @@ export async function getArticleById(id: string) {
           tags_id: {
             id: true,
             tag: true,
-            slug: true,
           },
         },
       },
-    })
-    
-    return result.articles_by_id
+    });
+
+    return result.articles_by_id;
   } catch (error) {
-    console.error('Error fetching article:', error)
-    throw error
+    console.error("Error fetching article:", error);
+    throw error;
   }
 }
 
@@ -95,10 +93,10 @@ export async function getPublishedArticles(limit?: number, offset?: number) {
   try {
     const result = await client.query({
       articles: {
-        __args: { 
+        __args: {
           filter: { is_published: { _eq: true } },
-          limit, 
-          offset 
+          limit,
+          offset,
         },
         id: true,
         title: true,
@@ -124,12 +122,12 @@ export async function getPublishedArticles(limit?: number, offset?: number) {
           },
         },
       },
-    })
-    
-    return result.articles
+    });
+
+    return result.articles;
   } catch (error) {
-    console.error('Error fetching published articles:', error)
-    throw error
+    console.error("Error fetching published articles:", error);
+    throw error;
   }
 }
 
@@ -138,12 +136,12 @@ export async function getFeaturedArticles(limit?: number) {
   try {
     const result = await client.query({
       articles: {
-        __args: { 
-          filter: { 
+        __args: {
+          filter: {
             is_featured: { _eq: true },
-            is_published: { _eq: true }
+            is_published: { _eq: true },
           },
-          limit 
+          limit,
         },
         id: true,
         title: true,
@@ -163,29 +161,32 @@ export async function getFeaturedArticles(limit?: number) {
           tags_id: {
             id: true,
             tag: true,
-            slug: true,
           },
         },
       },
-    })
-    
-    return result.articles
+    });
+
+    return result.articles;
   } catch (error) {
-    console.error('Error fetching featured articles:', error)
-    throw error
+    console.error("Error fetching featured articles:", error);
+    throw error;
   }
 }
 
 // Search articles by title or content
-export async function searchArticles(searchQuery: string, limit?: number, offset?: number) {
+export async function searchArticles(
+  searchQuery: string,
+  limit?: number,
+  offset?: number
+) {
   try {
     const result = await client.query({
       articles: {
-        __args: { 
+        __args: {
           search: searchQuery,
           filter: { is_published: { _eq: true } },
-          limit, 
-          offset 
+          limit,
+          offset,
         },
         id: true,
         title: true,
@@ -210,12 +211,12 @@ export async function searchArticles(searchQuery: string, limit?: number, offset
           },
         },
       },
-    })
-    
-    return result.articles
+    });
+
+    return result.articles;
   } catch (error) {
-    console.error('Error searching articles:', error)
-    throw error
+    console.error("Error searching articles:", error);
+    throw error;
   }
 }
 
@@ -231,27 +232,31 @@ export async function getAllCategories() {
         created_at: true,
         updated_at: true,
       },
-    })
-    
-    return result.categories
+    });
+
+    return result.categories;
   } catch (error) {
-    console.error('Error fetching categories:', error)
-    throw error
+    console.error("Error fetching categories:", error);
+    throw error;
   }
 }
 
 // Fetch articles by category
-export async function getArticlesByCategory(categoryId: string, limit?: number, offset?: number) {
+export async function getArticlesByCategory(
+  categoryId: string,
+  limit?: number,
+  offset?: number
+) {
   try {
     const result = await client.query({
       articles: {
-        __args: { 
-          filter: { 
+        __args: {
+          filter: {
             category_id: { id: { _eq: categoryId } },
-            is_published: { _eq: true }
+            is_published: { _eq: true },
           },
-          limit, 
-          offset 
+          limit,
+          offset,
         },
         id: true,
         title: true,
@@ -272,16 +277,15 @@ export async function getArticlesByCategory(categoryId: string, limit?: number, 
           tags_id: {
             id: true,
             tag: true,
-            slug: true,
           },
         },
       },
-    })
-    
-    return result.articles
+    });
+
+    return result.articles;
   } catch (error) {
-    console.error('Error fetching articles by category:', error)
-    throw error
+    console.error("Error fetching articles by category:", error);
+    throw error;
   }
 }
 
@@ -292,21 +296,18 @@ export async function getAllTags() {
       tags: {
         id: true,
         tag: true,
-        slug: true,
         description: true,
         created_at: true,
         updated_at: true,
       },
-    })
-    
-    return result.tags
+    });
+
+    return result.tags;
   } catch (error) {
-    console.error('Error fetching tags:', error)
-    throw error
+    console.error("Error fetching tags:", error);
+    throw error;
   }
 }
-
-
 
 // Fetch all pages
 export async function getAllPages() {
@@ -321,12 +322,12 @@ export async function getAllPages() {
         created_at: true,
         updated_at: true,
       },
-    })
-    
-    return result.pages
+    });
+
+    return result.pages;
   } catch (error) {
-    console.error('Error fetching pages:', error)
-    throw error
+    console.error("Error fetching pages:", error);
+    throw error;
   }
 }
 
@@ -346,21 +347,21 @@ export async function getPageById(id: string) {
         created_at: true,
         updated_at: true,
       },
-    })
-    
-    return result.pages_by_id
+    });
+
+    return result.pages_by_id;
   } catch (error) {
-    console.error('Error fetching page:', error)
-    throw error
+    console.error("Error fetching page:", error);
+    throw error;
   }
 }
 
 // Create a new contact message
 export async function createContactMessage(input: {
-  name: string
-  email: string
-  subject?: string
-  message: string
+  name: string;
+  email: string;
+  subject?: string;
+  message: string;
 }) {
   try {
     const result = await client.mutation({
@@ -373,12 +374,12 @@ export async function createContactMessage(input: {
         message: true,
         created_at: true,
       },
-    })
-    
-    return result.create_contact_messages_item
+    });
+
+    return result.create_contact_messages_item;
   } catch (error) {
-    console.error('Error creating contact message:', error)
-    throw error
+    console.error("Error creating contact message:", error);
+    throw error;
   }
 }
 
@@ -387,8 +388,8 @@ export async function getArticleStats() {
   try {
     const result = await client.query({
       articles_aggregated: {
-        __args: { 
-          filter: { is_published: { _eq: true } }
+        __args: {
+          filter: { is_published: { _eq: true } },
         },
         countAll: true,
         avg: {
@@ -398,12 +399,12 @@ export async function getArticleStats() {
           views_count: true,
         },
       },
-    })
-    
-    return result.articles_aggregated
+    });
+
+    return result.articles_aggregated;
   } catch (error) {
-    console.error('Error fetching article stats:', error)
-    throw error
+    console.error("Error fetching article stats:", error);
+    throw error;
   }
 }
 
@@ -416,30 +417,31 @@ export async function getArticlesByTag(tag: string) {
           filter: {
             article_tags: {
               tags_id: {
-                tag: { _eq: tag }
-              }
-            }
-          }
+                tag: { _eq: tag },
+              },
+            },
+          },
         },
         id: true,
         title: true,
+        slug: true,
         created_at: true,
         article_tags: {
           tags_id: {
-            tag: true
-          }
-        }
-      }
+            tag: true,
+          },
+        },
+      },
     });
     return result.articles || [];
   } catch (error) {
-    console.error('Error fetching articles by tag:', error);
+    console.error("Error fetching articles by tag:", error);
     throw error;
   }
 }
 
 // Export the client for direct usage if needed
-export { client }
+export { client };
 
 // Export types from genql for use in your components
 export type {
@@ -454,4 +456,4 @@ export type {
   create_articles_input,
   update_articles_input,
   create_contact_messages_input,
-} from '../src/generated/genql'
+} from "../src/generated/genql";

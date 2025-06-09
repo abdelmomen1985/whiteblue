@@ -6,7 +6,15 @@ const nextConfig = {
   },
   experimental: {
     allowedDevOrigins: ['*.replit.dev']
-  }
-}
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/proxy/graphql',
+        destination: 'http://34.56.54.244:48085/graphql',
+      },
+    ];
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

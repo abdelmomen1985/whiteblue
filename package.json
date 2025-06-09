@@ -3,9 +3,14 @@
     "dev": "next dev -p 5000",
     "build": "next build",
     "start": "next start -p 5000",
-    "lint": "next lint"
+    "lint": "next lint",
+    "genql": "genql --endpoint http://34.56.54.244:48085/graphql --output ./src/generated/genql --sort --verbose --header \"Authorization: Bearer FkGcOk8Uudxlb41YmUEk4Kd5wPH92vI7\"",
+    "genql:watch": "genql --endpoint http://34.56.54.244:48085/graphql --output ./src/generated/genql --sort --verbose --watch --header \"Authorization: Bearer FkGcOk8Uudxlb41YmUEk4Kd5wPH92vI7\"",
+    "prebuild": "npm run genql"
   },
   "dependencies": {
+    "@genql/cli": "^6.3.3",
+    "@genql/runtime": "^2.10.0",
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
@@ -17,7 +22,9 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/react": "19.1.6",
     "fluid-tailwind": "^1.0.4",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "typescript": "5.8.3"
   }
 }

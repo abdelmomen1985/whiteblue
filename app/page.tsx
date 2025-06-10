@@ -3,6 +3,7 @@ import { getArticlesByTag } from "../lib/graphql-client";
 import { articles as ArticleType } from "../lib/graphql-client";
 import MostFollowedArticles from "../components/ui/components/MostFollowedArticles";
 import KhaliBalakArticles from "../components/ui/components/KhaliBalakArticles";
+import CurrentNewsArticles from "../components/ui/components/CurrentNewsArticles";
 
 export const metadata = {
   title: "أبيض X أزرق - الرئيسية",
@@ -56,78 +57,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="section-2 my-5 py-5 text-end">
-        <div className="w-[90%] mx-auto flex gap-5 flex-wrap justify-between">
-          <div className="shadow-lg md:w-[30%] w-full rounded-t-lg bg-gray-100">
-            <img
-              src="/images/watch-5.jpg"
-              className="shadow-lg w-full rounded-t-lg object-cover"
-              alt=""
-            />
-            <div className="p-2">
-              <div className="flex justify-between">
-                <p className="font-thin text-gray-600">16 أبريل 2025</p>
-                <p className="bg-[#3454a5] text-white font-semibold p-1 rounded-md w-fit">
-                  خلي بالك
-                </p>
-              </div>
-              <a
-                className="my-3 block font-bold text-lg hover:text-[#3454a5] transition-all duration-300"
-                href=""
-              >
-                منظومة دمغ ذكية وحملات رقابية.. خطة وزارة التموين لضبط أسواق
-                الذهب
-              </a>
-              <p>لضمان تداول مشغولات ذهبية مطابقة للمواصفات</p>
-            </div>
-          </div>
-          <div className="shadow-lg md:w-[30%] w-full rounded-t-lg bg-gray-100">
-            <img
-              src="/images/watch-6.jpg"
-              className="shadow-lg w-full rounded-t-lg object-cover"
-              alt=""
-            />
-            <div className="p-2">
-              <div className="flex justify-between">
-                <p className="font-thin text-gray-600">15 أبريل 2025</p>
-                <p className="bg-[#3454a5] text-white font-semibold p-1 rounded-md w-fit">
-                  خلي بالك
-                </p>
-              </div>
-              <a
-                className="my-3 block font-bold text-lg hover:text-[#3454a5] transition-all duration-300"
-                href=""
-              >
-                إعادة افتتاح مسرح "بيرم التونسي" بالإسكندرية بعد تطويره
-              </a>
-              <p>مسرح بيرم التونسي هو واحد من أقدم المسارح في الإسكندرية</p>
-            </div>
-          </div>
-          <div className="shadow-lg md:w-[30%] w-full rounded-t-lg bg-gray-100">
-            <img
-              src="/images/watch-7.jpg"
-              className="shadow-lg w-full rounded-t-lg object-cover"
-              alt=""
-            />
-            <div className="p-2">
-              <div className="flex justify-between">
-                <p className="font-thin text-gray-600">15 أبريل 2025</p>
-                <p className="bg-[#3454a5] text-white font-semibold p-1 rounded-md w-fit">
-                  خلي بالك
-                </p>
-              </div>
-              <a
-                className="my-3 block font-bold text-lg hover:text-[#3454a5] transition-all duration-300"
-                href=""
-              >
-                فيلم "اللعب مع العيال" بطولة محمد إمام على "نتفليكس" من يوم ١٧
-                أبريل
-              </a>
-              <p>بيشارك في البطولة أسماء جلال، وباسم سمرة</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CurrentNewsArticles />
 
       <div className="section-3 bg-gray-200 my-5 py-5">
         <div className="w-[90%] mx-auto flex justify-between py-5">

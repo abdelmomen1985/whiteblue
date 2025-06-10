@@ -5,7 +5,7 @@
     "start": "next start -p 5000",
     "lint": "next lint",
     "genql:gen": "genql --endpoint http://34.56.54.244:48085/graphql --output ./src/generated/genql --sort --verbose --header \"Authorization: Bearer FkGcOk8Uudxlb41YmUEk4Kd5wPH92vI7\"",
-    "prebuild": "npm run genql"
+    "prebuild": "npm run genql:gen"
   },
   "dependencies": {
     "@genql/cli": "^6.3.3",

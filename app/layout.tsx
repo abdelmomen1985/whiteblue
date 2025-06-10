@@ -1,10 +1,9 @@
-
-import '../styles/globals.css'
+import "../styles/globals.css";
 
 export const metadata = {
-  title: 'أبيض X أزرق',
-  description: 'موقع أبيض في أزرق',
-}
+  title: "أبيض X أزرق",
+  description: "موقع أبيض في أزرق",
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -27,9 +26,7 @@ export default function RootLayout({ children }) {
                   خليك معانا
                 </a>
               </div>
-              <div className="md:block hidden">
-                الثلاثاء مايو 20, 2025
-              </div>
+              <div className="md:block hidden">الثلاثاء مايو 20, 2025</div>
               <div className="cursor-pointer md:hidden block">
                 <div className="w-4 h-0.5 bg-white"></div>
                 <div className="w-4 h-0.5 my-1 bg-white"></div>
@@ -38,11 +35,13 @@ export default function RootLayout({ children }) {
             </div>
           </nav>
           <div className="bg-gradient-to-r from-[#4381df] to-[#3455a6]">
-            <img
-              src="/images/4eb65c7c-afd1-4488-b3cb-9658f84eb7a4_removalai_preview.png"
-              alt=""
-              className="w-[30%] object-cover mx-auto"
-            />
+            <a href="/">
+              <img
+                src="/images/4eb65c7c-afd1-4488-b3cb-9658f84eb7a4_removalai_preview.png"
+                alt=""
+                className="w-[30%] object-cover mx-auto"
+              />
+            </a>
           </div>
           <div className="w-[90%] mx-auto text-end">
             <div className="shadow-md relative text-start flex justify-center">
@@ -53,9 +52,7 @@ export default function RootLayout({ children }) {
                   </a>
                 </li>
                 <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
-                  <a href="/contact">
-                    كلمنا
-                  </a>
+                  <a href="/contact">كلمنا</a>
                 </li>
                 <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center relative">
                   <a href="#">
@@ -108,14 +105,10 @@ export default function RootLayout({ children }) {
                   </div>
                 </li>
                 <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
-                  <a href="#">
-                    قنواتنا
-                  </a>
+                  <a href="#">قنواتنا</a>
                 </li>
                 <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
-                  <a href="#">
-                    أبيض في أزرق
-                  </a>
+                  <a href="#">أبيض في أزرق</a>
                 </li>
               </ul>
             </div>
@@ -225,14 +218,7 @@ export default function RootLayout({ children }) {
               </div>
               <div className="h-[0.2px] w-[30%] bg-gray-700 rounded-full"></div>
             </div>
-            <div className="relative w-[95%]">
-              <a
-                className="bg-[#3454a5] text-white font-bold p-2 text-xl rounded-xl block ml-auto w-fit relative right-0"
-                href=""
-              >
-                Contact us
-              </a>
-            </div>
+
             <div className="flex gap-4 mt-16 justify-evenly flex-wrap">
               <div className="w-[12%]">
                 <img
@@ -316,5 +302,5 @@ export default function RootLayout({ children }) {
         </footer>
       </body>
     </html>
-  )
+  );
 }

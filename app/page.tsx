@@ -1,5 +1,8 @@
 import { Button } from "../components/ui/button";
 import { getArticlesByTag } from "../lib/graphql-client";
+import { articles as ArticleType } from "../lib/graphql-client";
+import MostFollowedArticles from "../components/ui/components/MostFollowedArticles";
+import KhaliBalakArticles from "../components/ui/components/KhaliBalakArticles";
 
 export const metadata = {
   title: "أبيض X أزرق - الرئيسية",
@@ -7,51 +10,10 @@ export const metadata = {
 };
 
 export default async function Home() {
-  const tagName = "خلي بالك";
-  const articles = await getArticlesByTag(tagName);
-  // Only show up to 3 cards, most recent first
-  const visibleArticles = (articles || []).slice(-3).reverse();
   return (
     <div>
-      <div className="bg-[#ededed] p-5 relative">
-        <div className="md:w-[80%] mx-auto">
-          {/* Dynamic Article Cards - Server Side */}
-          <div className="cards flex justify-around">
-            {visibleArticles.map((article, idx) => (
-              <div
-                className={`card w-[70%] md:w-[30%] ${idx === 1 ? "md:block hidden" : ""} ${idx === 2 ? "lg:block hidden" : ""}`}
-                key={article.id}
-              >
-                <p className="bg-[#3454a5] text-white font-semibold p-2 rounded-md w-fit ms-auto">
-                  {tagName}
-                </p>
-                <a
-                  href={article.slug ? `/articles/${article.slug}` : "#"}
-                  className="transition-all duration-300 hover:text-[#3454a5] my-2 block"
-                >
-                  {article.title}
-                </a>
-                <p className="opacity-70 text-sm">
-                  {article.created_at
-                    ? new Date(article.created_at).toLocaleDateString("ar-EG", {
-                        day: "2-digit",
-                        month: "short",
-                        year: "numeric",
-                      })
-                    : ""}
-                </p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-        <a href="#">
-          <i className="transition-all duration-300 text-white hover:bg-[#3454a5] rounded-full bg-gray-300 p-2 px-3 absolute -translate-y-1/2 top-1/2 right-10 md:right-28 fa-solid fa-angle-right"></i>
-        </a>
-        <a href="#">
-          <i className="transition-all duration-300 text-white hover:bg-[#3454a5] rounded-full bg-gray-300 p-2 px-3 absolute -translate-y-1/2 top-1/2 left-10 md:left-28 fa-solid fa-angle-left"></i>
-        </a>
-      </div>
+      {/* Dynamic Article Cards - Server Side */}
+      <KhaliBalakArticles />
 
       <div className="section-1 my-5 py-5">
         <div className="md:w-[90%] mx-auto">
@@ -59,86 +21,7 @@ export default async function Home() {
             الأكثر متابعة هذا الشهر
           </h2>
           <div className="xl:flex">
-            <div className="flex w-full flex-wrap my-10 xl:my-0 items-center xl:w-1/2">
-              <div className="flex flex-wrap">
-                <div className="items-center md:w-[45%] w-full flex py-2 px-4 justify-end text-end gap-x-5">
-                  <div>
-                    <a
-                      href=""
-                      className="font-bold hover:text-[#3454a5] transition-all duration-300"
-                    >
-                      !لما يحصل زلزال، جسمك مش بس بيهتز… ده كلّه بيتأهّب
-                    </a>
-                    <p className="font-thin">22 مايو 2025</p>
-                  </div>
-                  <div className="max-w-[160px] max-h-[200px]">
-                    <img
-                      src="/images/post-3.jpg"
-                      className="shadow-lg object-cover rounded-lg w-full"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div className="items-center md:w-[45%] w-full flex py-2 px-4 justify-end text-end gap-x-5">
-                  <div>
-                    <a
-                      href=""
-                      className="font-bold hover:text-[#3454a5] transition-all duration-300"
-                    >
-                      !بيقولك : أنقذ مريض من الموت بعد بلع قرص الغلة؟ Chat GPT
-                    </a>
-                    <p className="font-thin">26 مايو 2025</p>
-                  </div>
-                  <div className="max-w-[160px] max-h-[200px]">
-                    <img
-                      src="/images/post-4.jpg"
-                      className="shadow-lg object-cover rounded-lg w-full"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-wrap">
-                <div className="items-center md:w-[45%] w-full flex py-2 px-4 justify-end text-end gap-x-5">
-                  <div>
-                    <a
-                      href=""
-                      className="font-bold hover:text-[#3454a5] transition-all duration-300"
-                    >
-                      دماغك هنّجت من المذاكرة؟.. طيب دي الخلطة السحرية للتركيز
-                      من #أبيض_في_أزرق
-                    </a>
-                    <p className="font-thin">21 مايو 2025</p>
-                  </div>
-                  <div className="max-w-[160px] max-h-[200px]">
-                    <img
-                      src="/images/post-1.jpg"
-                      className="shadow-lg object-cover rounded-lg w-full"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div className="items-center md:w-[45%] w-full flex py-2 px-4 justify-end text-end gap-x-5">
-                  <div>
-                    <a
-                      href=""
-                      className="font-bold hover:text-[#3454a5] transition-all duration-300"
-                    >
-                      !بتذاكر وانت جعان؟.. دماغك مش هتساعدك
-                    </a>
-                    <p className="font-thin">22 مايو 2025</p>
-                  </div>
-                  <div className="max-w-[160px] max-h-[200px]">
-                    <img
-                      src="/images/post-2.jpg"
-                      className="shadow-lg object-cover rounded-lg w-full"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="bg-gray-200 hidden xl:block w-[85%] mx-auto h-[1px]"></div>
-            </div>
+            <MostFollowedArticles />
             <div className="mx-auto xl:w-1/2">
               <div className="h-[500px] relative text-end">
                 <img

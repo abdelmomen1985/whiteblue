@@ -425,6 +425,10 @@ export async function getArticlesByTag(tag: string) {
         id: true,
         title: true,
         slug: true,
+        excerpt: true, // Added excerpt
+        featured: { 
+          id: true 
+        }, // Changed to featured object with id
         created_at: true,
         article_tags: {
           tags_id: {

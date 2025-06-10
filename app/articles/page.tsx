@@ -1,7 +1,8 @@
 import { createClient } from "@/src/generated/genql";
 import Link from "next/link";
-import { directusAssetUrl } from "@/lib/utils";
+
 import { Metadata } from "next";
+import { directusAssetUrl } from "@/lib/app-utils";
 
 export const metadata: Metadata = {
   title: "المقالات - وايت بلو",

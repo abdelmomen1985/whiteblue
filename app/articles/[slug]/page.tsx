@@ -1,7 +1,10 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { createClient } from "../../../src/generated/genql";
-import { directusAssetUrl } from "@/lib/utils";
+
+import { Button } from "@/components/ui/button";
+import { directusAssetUrl } from "@/lib/app-utils";
+import ArticleGallery from "@/components/article/article-gallery";
 
 interface ArticlePageProps {
   params: {
@@ -182,15 +185,24 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         )}
       </header>
 
-      {/* Featured Image */}
-      {article.featured && (
-        <div className="mb-8 px-36">
-          <img
-            src={directusAssetUrl(article.featured.id)}
-            alt={article.title}
-            className="w-full h-64 md:h-[700px] object-cover rounded-lg shadow-lg"
-          />
-        </div>
+      {/* Featured Image or Gallery Carousel */}
+      {article.article_form === "carousel" ? (
+        <ArticleGallery
+          title={article.title}
+          featured={article.featured}
+          gallery={article.gallery}
+        />
+      ) : (
+        // Show single featured image
+        article.featured && (
+          <div className="mb-8 px-36">
+            <img
+              src={directusAssetUrl(article.featured.id)}
+              alt={article.title}
+              className="w-full h-64 md:h-[700px] object-cover rounded-lg shadow-lg"
+            />
+          </div>
+        )
       )}
 
       {/* Content */}

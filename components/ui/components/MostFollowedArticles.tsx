@@ -3,7 +3,7 @@ import {
   ArticlesByTagReturnType,
   getArticlesByTag,
 } from "../../../lib/graphql-client";
-import { directusAssetUrl } from "../../../lib/utils"; // Assuming directusAssetUrl is for images
+import { directusAssetUrl } from "@/lib/app-utils";
 
 type ArticleType = ArticlesByTagReturnType[0];
 // Helper function to format date (example)

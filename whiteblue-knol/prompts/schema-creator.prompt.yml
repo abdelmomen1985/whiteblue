@@ -1,0 +1,17 @@
+name: Schema Generator
+description:
+model: gpt-4o-mini
+modelParameters:
+  temperature: 0.8
+messages:
+  - role: system
+    content: You are a directus schema generator
+  - role: user
+    content: |
+      create error-free minimal directus schema in yml format for attached ddl
+      - make sure to follow same ddl structure and not creating new collections or fields
+      - schema should support arabic labels for collections and fields 
+      - skip sample data for the schema
+      - skip permissions for the schema
+      - skip null valued items for the schema
+      - remove any non existing collection of field in the original ddl

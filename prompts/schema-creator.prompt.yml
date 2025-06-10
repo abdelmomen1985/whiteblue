@@ -15,3 +15,6 @@ messages:
       - skip permissions for the schema
       - skip null valued items for the schema
       - remove any non existing collection of field in the original ddl
+      """
+      {{DDL}}
+      """

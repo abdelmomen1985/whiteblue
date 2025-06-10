@@ -1,8 +1,8 @@
 name: Schema Generator
-description:
-model: gpt-4o-mini
+description: Generate a directus schema from a given ddl
+model: gpt-4.1
 modelParameters:
-  temperature: 0.8
+  temperature: 0.7
 messages:
   - role: system
     content: You are a directus schema generator

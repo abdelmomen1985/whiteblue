@@ -23,7 +23,6 @@ export async function getAllArticles(limit?: number, offset?: number) {
         slug: true,
         is_featured: true,
         is_published: true,
-        featured_image: true,
         views_count: true,
         created_at: true,
         updated_at: true,
@@ -62,7 +61,6 @@ export async function getArticleById(id: string) {
         slug: true,
         is_featured: true,
         is_published: true,
-        featured_image: true,
         views_count: true,
         created_at: true,
         updated_at: true,
@@ -104,7 +102,6 @@ export async function getPublishedArticles(limit?: number, offset?: number) {
         excerpt: true,
         slug: true,
         is_featured: true,
-        featured_image: true,
         views_count: true,
         created_at: true,
         updated_at: true,
@@ -148,7 +145,6 @@ export async function getFeaturedArticles(limit?: number) {
         content: true,
         excerpt: true,
         slug: true,
-        featured_image: true,
         views_count: true,
         created_at: true,
         category_id: {
@@ -194,7 +190,9 @@ export async function searchArticles(
         excerpt: true,
         slug: true,
         is_featured: true,
-        featured_image: true,
+        featured: {
+          id: true,
+        },
         views_count: true,
         created_at: true,
         category_id: {
@@ -264,7 +262,6 @@ export async function getArticlesByCategory(
         excerpt: true,
         slug: true,
         is_featured: true,
-        featured_image: true,
         views_count: true,
         created_at: true,
         category_id: {
@@ -424,15 +421,28 @@ export async function getArticlesByTag(tag: string) {
         },
         id: true,
         title: true,
+        content: true,
+        excerpt: true,
         slug: true,
-        excerpt: true, // Added excerpt
-        featured: { 
-          id: true 
-        }, // Changed to featured object with id
+        is_featured: true,
+        is_published: true,
+        views_count: true,
         created_at: true,
+        updated_at: true,
+        category_id: {
+          id: true,
+          name: true,
+          slug: true,
+        },
+        featured: {
+          id: true,
+        },
         article_tags: {
+          id: true,
           tags_id: {
+            id: true,
             tag: true,
+            slug: true,
           },
         },
       },
@@ -443,6 +453,11 @@ export async function getArticlesByTag(tag: string) {
     throw error;
   }
 }
+
+// export getArticlesByTag return type
+export type ArticlesByTagReturnType = Awaited<
+  ReturnType<typeof getArticlesByTag>
+>;
 
 // Export the client for direct usage if needed
 export { client };

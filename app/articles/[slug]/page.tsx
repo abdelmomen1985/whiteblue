@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { createClient } from "../../../src/generated/genql";
+import { directusAssetUrl } from "@/lib/utils";
 
 interface ArticlePageProps {
   params: {
@@ -35,7 +36,9 @@ async function getArticleBySlug(slug: string) {
         slug: true,
         content: true,
         excerpt: true,
-        featured_image: true,
+        featured: {
+          id: true,
+        },
         is_featured: true,
         created_at: true,
         updated_at: true,
@@ -45,6 +48,12 @@ async function getArticleBySlug(slug: string) {
           name: true,
           slug: true,
         },
+        gallery: {
+          directus_files_id: {
+            id: true,
+          },
+        },
+        article_form: true,
         article_tags: {
           tags_id: {
             id: true,
@@ -82,20 +91,15 @@ export async function generateMetadata({
       type: "article",
       publishedTime: article.created_at || undefined,
       modifiedTime: article.updated_at || undefined,
-      images: article.featured_image
-        ? [
-            {
-              url: article.featured_image,
-              alt: article.title,
-            },
-          ]
-        : undefined,
+      // No image available since featured_image was removed
+      images: undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
       description: article.excerpt || `Read ${article.title} on WhiteBlue`,
-      images: article.featured_image ? [article.featured_image] : undefined,
+      // No image available since featured_image was removed
+      images: undefined,
     },
   };
 }
@@ -179,12 +183,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       </header>
 
       {/* Featured Image */}
-      {article.featured_image && (
-        <div className="mb-8">
+      {article.featured && (
+        <div className="mb-8 px-36">
           <img
-            src={article.featured_image}
+            src={directusAssetUrl(article.featured.id)}
             alt={article.title}
-            className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+            className="w-full h-64 md:h-[700px] object-cover rounded-lg shadow-lg"
           />
         </div>
       )}

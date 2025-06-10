@@ -1,8 +1,11 @@
 import Link from "next/link";
-import { getArticlesByTag } from "../../../lib/graphql-client";
+import {
+  ArticlesByTagReturnType,
+  getArticlesByTag,
+} from "../../../lib/graphql-client";
 import { directusAssetUrl } from "../../../lib/utils"; // Assuming directusAssetUrl is for images
-import { articles as ArticleType } from "../../../lib/graphql-client"; // Import the type
 
+type ArticleType = ArticlesByTagReturnType[0];
 // Helper function to format date (example)
 const formatDate = (dateString: string) => {
   if (!dateString) return "";
@@ -55,7 +58,7 @@ export default async function MostFollowedArticles() {
           <img
             src={directusAssetUrl(article.featured.id as string)}
             className="shadow-lg object-cover rounded-lg w-full h-full"
-            alt={article.title || 'Article image'}
+            alt={article.title || "Article image"}
           />
         )}
       </div>

@@ -1,8 +1,10 @@
 import { createClient } from "@/src/generated/genql";
 import Link from "next/link";
+import { Suspense } from "react";
 
 import { Metadata } from "next";
 import { directusAssetUrl } from "@/lib/app-utils";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export const metadata: Metadata = {
   title: "المقالات - وايت بلو",
@@ -16,8 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Function to fetch all published articles
-async function getArticles() {
+// Function to fetch all published articles with optional search
+async function getArticles(searchTerm?: string) {
   const client = createClient({
     headers: {
       Authorization: "Bearer FkGcOk8Uudxlb41YmUEk4Kd5wPH92vI7",
@@ -25,14 +27,37 @@ async function getArticles() {
   });
 
   try {
+    const filter: any = {
+      is_published: {
+        _eq: true,
+      },
+    };
+
+    // Add search filter if search term is provided
+    if (searchTerm) {
+      filter._or = [
+        {
+          title: {
+            _icontains: searchTerm,
+          },
+        },
+        {
+          excerpt: {
+            _icontains: searchTerm,
+          },
+        },
+        {
+          content: {
+            _icontains: searchTerm,
+          },
+        },
+      ];
+    }
+
     const result = await client.query({
       articles: {
         __args: {
-          filter: {
-            is_published: {
-              _eq: true,
-            },
-          },
+          filter,
           sort: ["-created_at"], // Sort by newest first
           limit: 50,
         },
@@ -67,8 +92,12 @@ async function getArticles() {
   }
 }
 
-export default async function ArticlesPage() {
-  const articles = await getArticles();
+interface ArticlesPageProps {
+  searchParams: { search?: string };
+}
+
+async function ArticlesContent({ searchTerm }: { searchTerm?: string }) {
+  const articles = await getArticles(searchTerm);
 
   // Format date
   const formatDate = (dateString: string | null) => {
@@ -89,11 +118,24 @@ export default async function ArticlesPage() {
       {/* Header */}
       <div className="mb-12 text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          المقالات
+          {searchTerm ? `نتائج البحث عن: "${searchTerm}"` : "المقالات"}
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          اكتشف رؤى وقصص وأخبار عن الاستدامة والابتكار والتأثير البيئي.
+          {searchTerm 
+            ? `تم العثور على ${articles.length} نتيجة`
+            : "اكتشف رؤى وقصص وأخبار عن الاستدامة والابتكار والتأثير البيئي."
+          }
         </p>
+        {searchTerm && (
+          <div className="mt-4">
+            <Link 
+              href="/articles" 
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              عرض جميع المقالات
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Featured Articles */}
@@ -254,7 +296,22 @@ export default async function ArticlesPage() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">لم يتم العثور على مقالات.</p>
+            <p className="text-gray-600 text-lg">
+              {searchTerm 
+                ? `لم يتم العثور على مقالات تحتوي على "${searchTerm}"`
+                : "لم يتم العثور على مقالات."
+              }
+            </p>
+            {searchTerm && (
+              <div className="mt-4">
+                <Link 
+                  href="/articles" 
+                  className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  عرض جميع المقالات
+                </Link>
+              </div>
+            )}
           </div>
         )}
       </section>
@@ -268,5 +325,19 @@ export default async function ArticlesPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
+  const searchTerm = searchParams.search;
+
+  return (
+    <Suspense fallback={
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <LoadingSpinner />
+      </div>
+    }>
+      <ArticlesContent searchTerm={searchTerm} />
+    </Suspense>
   );
 }

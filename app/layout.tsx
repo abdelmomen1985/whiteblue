@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import SearchBar from "@/components/SearchBar";
 
 export const metadata = {
   title: "أبيض X أزرق",
@@ -8,25 +9,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+      </head>
       <body>
         <header>
           <nav className="bg-black p-3 text-white">
             <div className="items-center justify-between flex px-10 lg:px-0 lg:w-[70%] mx-auto">
-              <div className="flex justify-between items-center gap-x-5">
-                <i className="fa-solid fa-magnifying-glass"></i>
-                <input
-                  type="search"
-                  className="p-1 outline-none bg-transparent"
-                  placeholder="اكتب كلمة البحث"
-                />
-                <a
-                  href="#"
-                  className="transition-all duration-300 md:block hidden hover:text-[#3454a5]"
-                >
-                  خليك معانا
-                </a>
+              <SearchBar />
+              <div className="md:block hidden">
+                {new Date().toLocaleDateString("ar-EG", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </div>
-              <div className="md:block hidden">الثلاثاء مايو 20, 2025</div>
               <div className="cursor-pointer md:hidden block">
                 <div className="w-4 h-0.5 bg-white"></div>
                 <div className="w-4 h-0.5 my-1 bg-white"></div>

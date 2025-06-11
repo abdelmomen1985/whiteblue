@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-instagram" viewBox="0 0 24 24">
+    <rect width="24" height="24" rx="6" fill="#E1306C"/>
+    <path d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10zm0 8.2A3.2 3.2 0 1 1 12 9.8a3.2 3.2 0 0 1 0 6.4zm4.5-8.7a1.2 1.2 0 1 1-2.4 0a1.2 1.2 0 0 1 2.4 0z" fill="#fff"/>
+  </symbol>
+  <symbol id="icon-gmail" viewBox="0 0 24 24">
+    <rect width="24" height="24" rx="6" fill="#EA4335"/>
+    <path d="M19.6 6.6v10.8c0 .44-.36.8-.8.8H5.2a.8.8 0 0 1-.8-.8V6.6c0-.44.36-.8.8-.8h13.6c.44 0 .8.36.8.8zm-1.6.8l-6 4.8l-6-4.8v9.2h12V7.4zm-6 3.6l6-4.8H5.6l6 4.8z" fill="#fff"/>
+  </symbol>
+  <symbol id="icon-location" viewBox="0 0 24 24">
+    <rect width="24" height="24" rx="6" fill="#4285F4"/>
+    <path d="M12 4a6 6 0 0 1 6 6c0 4.5-6 10-6 10s-6-5.5-6-10a6 6 0 0 1 6-6zm0 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4z" fill="#fff"/>
+  </symbol>
+</svg>

@@ -54,6 +54,10 @@ export default function RootLayout({ children }) {
                 <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
                   <a href="/contact">كلمنا</a>
                 </li>
+
+                <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
+                  <a href="/articles">المقالات</a>
+                </li>
                 <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center relative">
                   <a href="#">
                     TV &nbsp;

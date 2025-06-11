@@ -2,12 +2,23 @@ import { createClient, everything } from "../src/generated/genql";
 
 // Create a GraphQL client instance
 // Using the real API endpoint from Articles.bru
+// Custom fetch that disables cache
+const customFetch = (
+  input: RequestInfo,
+  init?: RequestInit & { next?: { revalidate?: number } }
+) => {
+  // Always set next: { revalidate: 0 } to disable cache
+  const nextOptions = { ...init, next: { revalidate: 0 } };
+  return fetch(input, nextOptions);
+};
+
 const client = createClient({
-  url: "http://34.56.54.244:48085/graphql",
+  url: "https://admin.abyadxazra2.com/graphql",
   headers: {
     Authorization: "Bearer FkGcOk8Uudxlb41YmUEk4Kd5wPH92vI7",
     "Content-Type": "application/json",
   },
+  fetch: customFetch,
 });
 
 // Fetch all articles with tags
@@ -359,9 +370,9 @@ export async function getPageBySlug(slug: string) {
         __args: {
           filter: {
             slug: { _eq: slug },
-            is_published: { _eq: true }
+            is_published: { _eq: true },
           },
-          limit: 1
+          limit: 1,
         },
         id: true,
         title: true,
@@ -386,13 +397,13 @@ export async function getAllPageSlugs() {
     const result = await client.query({
       pages: {
         __args: {
-          filter: { is_published: { _eq: true } }
+          filter: { is_published: { _eq: true } },
         },
         slug: true,
       },
     });
 
-    return result.pages?.map(page => page.slug).filter(Boolean) || [];
+    return result.pages?.map((page) => page.slug).filter(Boolean) || [];
   } catch (error) {
     console.error("Error fetching page slugs:", error);
     throw error;

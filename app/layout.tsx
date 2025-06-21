@@ -1,5 +1,7 @@
 import "../styles/globals.css";
 import SearchBar from "@/components/SearchBar";
+import Navigation from "@/components/Navigation";
+import HeroCarousel from "@/components/HeroCarousel";
 
 export const metadata = {
   title: "أبيض X أزرق",
@@ -10,7 +12,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
       <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
       </head>
       <body>
         <header>
@@ -40,83 +48,12 @@ export default function RootLayout({ children }) {
               />
             </a>
           </div>
-          <div className="w-[90%] mx-auto text-end">
-            <div className="shadow-md relative text-start flex justify-center">
-              <ul className="text-black flex gap-x-5 h-16 items-center group/ul">
-                <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
-                  <a href="/about" target="_blank">
-                    احنا مين
-                  </a>
-                </li>
-                <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
-                  <a href="/contact">كلمنا</a>
-                </li>
 
-                <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
-                  <a href="/articles">المقالات</a>
-                </li>
-                <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center relative">
-                  <a href="#">
-                    TV &nbsp;
-                    <i className="fa-solid fa-caret-down"></i>
-                  </a>
-                  <div className="bg-white p-3 z-40 transition-all opacity-0 group-hover:opacity-100 duration-500 font-semibold text-black w-40 top-36 absolute group-hover:top-full border-t-2 border-[#3454a5] left-0 pointer-events-none group-hover/ul:pointer-events-auto">
-                    <a
-                      href="#"
-                      className="my-1 transition-all duration-500 hover:text-[#3454a5] block hover:ps-4 relative group/parent"
-                    >
-                      <span className="bg-[#3454a5] group-hover/parent:opacity-100 size-2 rounded-full transition-all duration-700 left-0 absolute top-1/2 -translate-y-1/2 opacity-0"></span>
-                      كيدز إريا
-                    </a>
-                    <a
-                      href="#"
-                      className="my-1 transition-all duration-500 hover:text-[#3454a5] block hover:ps-4 relative group/parent"
-                    >
-                      <span className="bg-[#3454a5] group-hover/parent:opacity-100 size-2 rounded-full transition-all duration-700 left-0 absolute top-1/2 -translate-y-1/2 opacity-0"></span>
-                      التحويجه
-                    </a>
-                    <a
-                      href="#"
-                      className="my-1 transition-all duration-500 hover:text-[#3454a5] block hover:ps-4 relative group/parent"
-                    >
-                      <span className="bg-[#3454a5] group-hover/parent:opacity-100 size-2 rounded-full transition-all duration-700 left-0 absolute top-1/2 -translate-y-1/2 opacity-0"></span>
-                      الماميز
-                    </a>
-                    <a
-                      href="#"
-                      className="my-1 transition-all duration-500 hover:text-[#3454a5] block hover:ps-4 relative group/parent"
-                    >
-                      <span className="bg-[#3454a5] group-hover/parent:opacity-100 size-2 rounded-full transition-all duration-700 left-0 absolute top-1/2 -translate-y-1/2 opacity-0"></span>
-                      اللمبه الحمراء
-                    </a>
-                    <a
-                      href="#"
-                      className="my-1 transition-all duration-500 hover:text-[#3454a5] block hover:ps-4 relative group/parent"
-                    >
-                      <span className="bg-[#3454a5] group-hover/parent:opacity-100 size-2 rounded-full transition-all duration-700 left-0 absolute top-1/2 -translate-y-1/2 opacity-0"></span>
-                      العباسيه
-                    </a>
-                    <a
-                      href="#"
-                      className="my-1 transition-all duration-500 hover:text-[#3454a5] block hover:ps-4 relative group/parent"
-                    >
-                      <span className="bg-[#3454a5] group-hover/parent:opacity-100 size-2 rounded-full transition-all duration-700 left-0 absolute top-1/2 -translate-y-1/2 opacity-0"></span>
-                      الريفيو
-                    </a>
-                  </div>
-                </li>
-                <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
-                  <a href="#">قنواتنا</a>
-                </li>
-                <li className="group transition-all duration-300 hover:text-[#3454a5] font-bold h-full flex items-center">
-                  <a href="#">أبيض في أزرق</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <HeroCarousel />
+          <Navigation />
         </header>
 
-        <main>{children}</main>
+        <main className="pt-8">{children}</main>
 
         <footer className="section-8 bg-black text-white my-5 py-5">
           <div className="w-[90%] mx-auto">

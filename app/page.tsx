@@ -10,9 +10,14 @@ export const metadata = {
   description: "موقع إخباري متميز",
 };
 
+import HomeDialog from "../components/HomeDialog";
+
 export default async function Home() {
   return (
-    <div>
+    <>
+      {/* Popup dialog for image or video */}
+      <HomeDialog mediaId="banner-1" mediaType="image" />
+      <div>
       {/* Dynamic Article Cards - Server Side */}
       <KhaliBalakArticles />
 
@@ -61,14 +66,14 @@ export default async function Home() {
 
       <div className="section-3 bg-gray-200 my-5 py-5">
         <div className="w-[90%] mx-auto flex justify-between py-5">
+          <h2 className="text-2xl">شاهد قبل الحذف</h2>
           <a
             className="bg-black text-sm p-3 rounded-full text-white font-semibold transition-all duration-300 hover:bg-[#3454a5]"
             href=""
           >
             المزيد من الفيديوهات
-            <i className="text-xs fa-solid fa-chevron-right"></i>
+            <i className="text-xs fa-solid fa-chevron-left mx-2"></i>
           </a>
-          <h2 className="text-2xl">شاهد قبل الحذف</h2>
         </div>
         <div className="w-[90%] mx-auto flex gap-5 flex-wrap justify-between text-end">
           <div className="rounded-lg relative shadow-lg group cursor-pointer w-[45%] lg:w-[22%]">
@@ -138,5 +143,6 @@ export default async function Home() {
         </div>
       </div>
     </div>
+    </>
   );
 }

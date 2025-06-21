@@ -1,5 +1,4 @@
-
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css");
 
 @tailwind base;
 @tailwind components;
@@ -72,8 +71,103 @@
 }
 
 @layer utilities {
-    .text-outline {
+  .text-outline {
     -webkit-text-stroke: 1px rgba(128, 128, 128, 0.2);
-    color: transparent; 
+    color: transparent;
+  }
+
+  /* Carousel utilities */
+  .carousel-slide {
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
     }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Enhanced carousel indicators */
+  .carousel-indicator {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-indicator::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.3)
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .carousel-indicator:hover::before {
+    opacity: 1;
+  }
+
+  .carousel-indicator-active {
+    position: relative;
+  }
+
+  .carousel-indicator-active::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: inherit;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  /* Navigation elevated box shadow */
+  .nav-elevated {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Backdrop blur support */
+  .backdrop-blur-custom {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* RTL carousel support */
+  [dir="rtl"] .carousel-container {
+    direction: ltr;
+  }
+
+  [dir="rtl"] .carousel-content {
+    direction: rtl;
+  }
 }

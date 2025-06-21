@@ -10,6 +10,7 @@
   "dependencies": {
     "@genql/cli": "^6.3.3",
     "@genql/runtime": "^2.10.0",
+    "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.21",

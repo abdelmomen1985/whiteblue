@@ -18,7 +18,9 @@ export default function SearchBar() {
     if (e.key === "Enter") {
       e.preventDefault();
       if (searchTerm.trim()) {
-        router.push(`/articles?search=${encodeURIComponent(searchTerm.trim())}`);
+        router.push(
+          `/articles?search=${encodeURIComponent(searchTerm.trim())}`
+        );
       }
     }
   };
@@ -28,7 +30,11 @@ export default function SearchBar() {
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex justify-between items-center gap-x-5" role="search">
+    <form
+      onSubmit={handleSearch}
+      className="flex justify-between items-center gap-x-5"
+      role="search"
+    >
       <div className="relative flex items-center">
         <input
           type="search"
@@ -40,22 +46,12 @@ export default function SearchBar() {
           aria-label="البحث في المقالات"
           name="search"
         />
-        {searchTerm && (
-          <button
-            type="button"
-            onClick={clearSearch}
-            className="absolute right-0 text-gray-400 hover:text-white transition-all duration-300"
-            aria-label="مسح النص"
-          >
-            <i className="fa-solid fa-times text-sm"></i>
-          </button>
-        )}
       </div>
       <button
         type="submit"
         className={`transition-all duration-300 ${
-          searchTerm.trim() 
-            ? "text-white hover:text-[#3454a5] cursor-pointer" 
+          searchTerm.trim()
+            ? "text-white hover:text-[#3454a5] cursor-pointer"
             : "text-gray-400 cursor-default"
         }`}
         disabled={!searchTerm.trim()}

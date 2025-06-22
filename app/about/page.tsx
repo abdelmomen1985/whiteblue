@@ -1,5 +1,5 @@
+import { getPageBySlug } from "@/lib/queries";
 import Layout from "../../components/Layout";
-import { getPageBySlug } from "../../lib/graphql-client";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {

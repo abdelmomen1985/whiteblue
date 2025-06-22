@@ -1,10 +1,11 @@
 "use client";
+import { directusAssetUrl } from "@/lib/app-utils";
 import { useState, useEffect } from "react";
 
 const slides = [
   {
     id: 1,
-    image: "/images/img-home.jpg",
+    image: "9bf279a1-beb5-42e2-8e6f-deecbb6d2efc",
     title: "مع إستنابل، إستخرج حقيق السنابل",
     subtitle: "إكلك معجني ولسعي",
     buttonText: "حقيق إستنابل",
@@ -12,7 +13,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "/images/midPage-1.jpg",
+    image: "9bf279a1-beb5-42e2-8e6f-deecbb6d2efc",
     title: "ميلك بالصحة",
     subtitle: "مستحضر من أجود أنواع الفضة",
     buttonText: "إبيض في الزرق",
@@ -20,7 +21,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/images/Events-1.jpg",
+    image: "9bf279a1-beb5-42e2-8e6f-deecbb6d2efc",
     title: "شاهد قبل الحذف",
     subtitle: "محتوى حصري ومميز",
     buttonText: "شاهد الآن",
@@ -28,7 +29,7 @@ const slides = [
   },
   {
     id: 4,
-    image: "/images/watch-Main.jpg",
+    image: "9bf279a1-beb5-42e2-8e6f-deecbb6d2efc",
     title: "دليل السينما",
     subtitle: "أحدث الأفلام والمراجعات",
     buttonText: "استكشف السينما",
@@ -78,7 +79,7 @@ export default function HeroCarousel() {
             key={slide.id}
             className={`min-w-full h-full relative bg-gradient-to-r ${slide.bgGradient} flex items-center`}
             style={{
-              backgroundImage: `url(${slide.image})`,
+              backgroundImage: `url(${directusAssetUrl(slide.image)})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundBlendMode: "overlay",
@@ -87,7 +88,7 @@ export default function HeroCarousel() {
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
-            {/* Content */}
+            {/* Content 
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 carousel-content">
               <div className="text-white text-right flex items-center justify-between">
                 <div className="flex-1 carousel-fade-in">
@@ -101,7 +102,7 @@ export default function HeroCarousel() {
                     {slide.buttonText}
                   </button>
                 </div>
-                {/* Product Image Placeholder */}
+                
                 <div className="hidden lg:block flex-shrink-0 ml-8">
                   <div className="w-48 h-48 bg-white bg-opacity-10 rounded-2xl backdrop-blur-custom border border-white border-opacity-20 flex items-center justify-center">
                     <i className="fa-solid fa-image text-4xl text-white opacity-60"></i>
@@ -109,6 +110,7 @@ export default function HeroCarousel() {
                 </div>
               </div>
             </div>
+                */}
           </div>
         ))}
       </div>

@@ -1,9 +1,7 @@
 import Link from "next/link";
-import {
-  ArticlesByTagReturnType,
-  getArticlesByTag,
-} from "../../../lib/graphql-client";
+
 import { directusAssetUrl } from "@/lib/app-utils";
+import { ArticlesByTagReturnType, getArticlesByTag } from "@/lib/queries";
 
 type ArticleType = ArticlesByTagReturnType[0];
 // Helper function to format date (example)

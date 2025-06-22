@@ -1,6 +1,6 @@
 "use client";
 
-import { ArticlesByTagReturnType } from "@/lib/graphql-client";
+import { ArticlesByTagReturnType } from "@/lib/queries";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 

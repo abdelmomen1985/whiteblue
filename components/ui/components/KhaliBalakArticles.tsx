@@ -1,4 +1,4 @@
-import { getArticlesByTag } from "../../../lib/graphql-client";
+import { getArticlesByTag } from "@/lib/queries";
 import KhaliBalakArticlesCarousel from "./KhaliBalakArticlesCarousel";
 
 const tagName = "خلي بالك";

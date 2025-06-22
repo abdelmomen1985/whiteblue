@@ -1,9 +1,7 @@
 import Link from "next/link";
-import {
-  ArticlesByTagReturnType,
-  getArticlesByTag,
-} from "../../../lib/graphql-client";
+
 import { directusAssetUrl } from "@/lib/app-utils";
+import { ArticlesByTagReturnType, getArticlesByTag } from "@/lib/queries";
 
 type ArticleType = ArticlesByTagReturnType[0];
 
@@ -34,7 +32,10 @@ export default async function CurrentNewsArticles() {
   }
 
   const renderArticle = (article: ArticleType) => (
-    <div key={article.id} className="shadow-lg md:w-[30%] w-full rounded-t-lg bg-gray-100">
+    <div
+      key={article.id}
+      className="shadow-lg md:w-[30%] w-full rounded-t-lg bg-gray-100"
+    >
       {article.featured?.id && (
         <img
           src={directusAssetUrl(article.featured.id as string)}
@@ -45,7 +46,9 @@ export default async function CurrentNewsArticles() {
       <div className="p-2">
         <div className="flex justify-between">
           {article.created_at && (
-            <p className="font-thin text-gray-600">{formatDate(article.created_at)}</p>
+            <p className="font-thin text-gray-600">
+              {formatDate(article.created_at)}
+            </p>
           )}
           <p className="bg-[#3454a5] text-white font-semibold p-1 rounded-md w-fit">
             أخبار مصر
@@ -58,7 +61,9 @@ export default async function CurrentNewsArticles() {
           {article.title}
         </Link>
         {article.excerpt && (
-          <p className="text-gray-700 text-sm line-clamp-2">{article.excerpt}</p>
+          <p className="text-gray-700 text-sm line-clamp-2">
+            {article.excerpt}
+          </p>
         )}
       </div>
     </div>

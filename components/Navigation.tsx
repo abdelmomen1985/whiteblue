@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { slugify } from "@/lib/utils";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -14,7 +15,6 @@ export default function Navigation() {
                 { label: "أبيض في ازرق", href: "/", home: true },
                 { label: "احنا مين", href: "/about" },
                 { label: "كلمنا", href: "/contact" },
-                { label: "مقالات", href: "/articles" },
               ];
               return menuItems.map((item, idx) => (
                 <li
@@ -32,6 +32,43 @@ export default function Navigation() {
                 </li>
               ));
             })()}
+            <li className="relative text-black font-bold px-4 py-2 rounded-lg hover:bg-gray-50 hover:shadow-sm transition-all duration-300 flex items-center group">
+              <a
+                href="/articles"
+                className={
+                  pathname === "/articles"
+                    ? "bg-gradient-to-r from-[#4381df] to-[#3455a6] text-white rounded-lg px-4 py-2 font-bold transition-all duration-300 shadow-md"
+                    : "text-black font-bold px-4 py-2 rounded-lg hover:bg-gray-50 hover:shadow-sm transition-all duration-300"
+                }
+              >
+                المقالات <i className="fa-solid fa-caret-down ml-1"></i>
+              </a>
+              <div className="bg-white p-3 z-40 transition-all opacity-0 group-hover:opacity-100 duration-500 font-semibold text-black w-96 top-10 absolute group-hover:top-full border-t-2 border-[#3454a5] left-0 pointer-events-none group-hover:pointer-events-auto nav-elevated rounded-lg border border-gray-100 grid grid-cols-2 gap-4">
+                {[                'الصحة الجنسية',
+                  'التجميل',
+                  'الأطفال',
+                  'طب الشيخوخة',
+                  'تحاليل',
+                  'الصيدلية',
+                  'العيادة النفسية',
+                  'التغذية',
+                  'عيادة الأسنان',
+                  'حكيم عيون',
+                  'أمراض مزمنة',
+                  'أمراض نادرة',
+                  'الريڤيو',
+                ].map((item) => (
+                  <a
+                    key={item}
+                    href={`/category/${slugify(item)}`}
+                    className="my-1 transition-all duration-500 hover:text-[#3454a5] block hover:ps-4 relative group/parent"
+                  >
+                    <span className="bg-[#3454a5] group-hover/parent:opacity-100 size-2 rounded-full transition-all duration-700 left-0 absolute top-1/2 -translate-y-1/2 opacity-0"></span>
+                    {item}
+                  </a>
+                ))}
+              </div>
+            </li>
             <li className="relative text-black font-bold px-4 py-2 rounded-lg hover:bg-gray-50 hover:shadow-sm transition-all duration-300 flex items-center group">
               <a href="#" className="flex items-center">
                 قنواتنا <i className="fa-solid fa-caret-down ml-1"></i>

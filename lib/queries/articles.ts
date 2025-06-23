@@ -231,8 +231,13 @@ export async function getArticlesByCategory(
         excerpt: true,
         slug: true,
         is_featured: true,
+        is_published: true,
         views_count: true,
         created_at: true,
+        updated_at: true,
+        featured: {
+          id: true,
+        },
         category_id: {
           id: true,
           name: true,

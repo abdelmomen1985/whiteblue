@@ -9,17 +9,13 @@ export {
   getArticlesByTag,
   getArticleStats,
   type ArticlesByTagReturnType,
-} from './articles';
+} from "./articles";
 
 // Re-export all category queries
-export {
-  getAllCategories,
-} from './categories';
+export { getAllCategories, getCategoryBySlug } from "./categories";
 
 // Re-export all tag queries
-export {
-  getAllTags,
-} from './tags';
+export { getAllTags } from "./tags";
 
 // Re-export all page queries
 export {
@@ -27,9 +23,7 @@ export {
   getPageById,
   getPageBySlug,
   getAllPageSlugs,
-} from './pages';
+} from "./pages";
 
 // Re-export all contact queries
-export {
-  createContactMessage,
-} from './contact';
+export { createContactMessage } from "./contact";

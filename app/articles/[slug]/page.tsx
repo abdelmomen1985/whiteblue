@@ -5,6 +5,7 @@ import { createClient } from "../../../src/generated/genql";
 import { Button } from "@/components/ui/button";
 import { directusAssetUrl } from "@/lib/app-utils";
 import ArticleGallery from "@/components/article/article-gallery";
+import ArticleSidebar from "@/components/ui/components/ArticleSidebar";
 
 interface ArticlePageProps {
   params: {
@@ -126,7 +127,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   };
 
   return (
-    <article className="max-w-4xl mx-auto px-4 py-8">
+    <div className="w-[90%] mx-auto flex flex-col lg:flex-row gap-12 py-8">
+      <main className="w-full lg:w-2/3">
+        <article>
       {/* Header */}
       <header className="mb-8">
         {article.is_featured && (
@@ -223,8 +226,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </button>
           </div>
         </div>
-      </footer>
-    </article>
+        </footer>
+        </article>
+      </main>
+      <ArticleSidebar />
+    </div>
   );
 }
 

@@ -160,7 +160,7 @@ export default function RootLayout({ children }) {
             <div className="flex gap-4 mt-16 justify-evenly flex-wrap">
               <div className="w-[12%]">
                 <img
-                  src="/images/fot-1.png"
+                  src="/images/fot-1.jpeg"
                   className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
                   alt=""
                 />
@@ -174,28 +174,28 @@ export default function RootLayout({ children }) {
               </div>
               <div className="w-[12%]">
                 <img
-                  src="/images/fot-3.png"
+                  src="/images/fot-3.jpg"
                   className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
                   alt=""
                 />
               </div>
               <div className="w-[12%]">
                 <img
-                  src="/images/fot-4.png"
+                  src="/images/fot-1.jpeg"
                   className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
                   alt=""
                 />
               </div>
               <div className="w-[12%]">
                 <img
-                  src="/images/fot-5.png"
+                  src="/images/fot-3.jpg"
                   className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
                   alt=""
                 />
               </div>
               <div className="w-[12%]">
                 <img
-                  src="/images/fot-6.png"
+                  src="/images/fot-2.png"
                   className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
                   alt=""
                 />
@@ -210,27 +210,6 @@ export default function RootLayout({ children }) {
               <div className="w-[12%]">
                 <img
                   src="/images/fot-8.png"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-9.png"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-10.png"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-11.png"
                   className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
                   alt=""
                 />

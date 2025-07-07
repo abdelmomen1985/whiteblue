@@ -4,6 +4,7 @@ import SearchBar from "@/components/SearchBar";
 import Navigation from "@/components/Navigation";
 import HeroCarousel from "@/components/HeroCarousel";
 import { usePathname } from "next/navigation";
+import { slugify } from "@/lib/utils";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -90,16 +91,45 @@ export default function Header() {
               >
                 من نحن
               </a>
-              <a
-                href="/articles"
-                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
-                  pathname.startsWith("/articles")
-                    ? "bg-white bg-opacity-20"
-                    : "hover:bg-white hover:bg-opacity-20"
-                }`}
-              >
-                المقالات
-              </a>
+              <div className="relative group">
+                <a
+                  href="/articles"
+                  className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 flex items-center gap-1 ${
+                    pathname.startsWith("/articles")
+                      ? "bg-white bg-opacity-20"
+                      : "hover:bg-white hover:bg-opacity-20"
+                  }`}
+                >
+                  المقالات <i className="fa-solid fa-caret-down text-xs"></i>
+                </a>
+                <div className="absolute top-full left-0 mt-2 w-96 bg-white border border-gray-200 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div className="p-4 grid grid-cols-2 gap-4">
+                    {[
+                      "الصحة الجنسية",
+                      "التجميل",
+                      "الأطفال",
+                      "طب الشيخوخة",
+                      "تحاليل",
+                      "الصيدلية",
+                      "العيادة النفسية",
+                      "التغذية",
+                      "عيادة الأسنان",
+                      "حكيم عيون",
+                      "أمراض مزمنة",
+                      "أمراض نادرة",
+                      "الريڤيو",
+                    ].map((item) => (
+                      <a
+                        key={item}
+                        href={`/category/${slugify(item)}`}
+                        className="block px-3 py-2 text-sm text-gray-700 hover:text-[#3454a5] hover:bg-gray-50 rounded transition-all duration-300"
+                      >
+                        {item}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
 
               {/* Dropdown for القنوات */}
               <div className="relative group">
@@ -243,7 +273,6 @@ export default function Header() {
       )}
 
       <HeroCarousel />
-      <Navigation />
     </header>
   );
 }

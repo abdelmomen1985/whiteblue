@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const slides = [
   {
     id: 1,
-    image: "9bf279a1-beb5-42e2-8e6f-deecbb6d2efc",
+    image: "/images/fakharny.png",
     title: "مع إستنابل، إستخرج حقيق السنابل",
     subtitle: "إكلك معجني ولسعي",
     buttonText: "حقيق إستنابل",
@@ -13,7 +13,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "9bf279a1-beb5-42e2-8e6f-deecbb6d2efc",
+    image: "/images/fakharny.png",
     title: "ميلك بالصحة",
     subtitle: "مستحضر من أجود أنواع الفضة",
     buttonText: "إبيض في الزرق",
@@ -21,7 +21,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "9bf279a1-beb5-42e2-8e6f-deecbb6d2efc",
+    image: "/images/fakharny.png",
     title: "شاهد قبل الحذف",
     subtitle: "محتوى حصري ومميز",
     buttonText: "شاهد الآن",
@@ -29,7 +29,7 @@ const slides = [
   },
   {
     id: 4,
-    image: "9bf279a1-beb5-42e2-8e6f-deecbb6d2efc",
+    image: "/images/fakharny.png",
     title: "دليل السينما",
     subtitle: "أحدث الأفلام والمراجعات",
     buttonText: "استكشف السينما",
@@ -79,7 +79,12 @@ export default function HeroCarousel() {
             key={slide.id}
             className={`min-w-full h-full relative bg-gradient-to-r ${slide.bgGradient} flex items-center`}
             style={{
-              backgroundImage: `url(${directusAssetUrl(slide.image)})`,
+              backgroundImage: `url(${
+                slide.image.startsWith("http") || slide.image.startsWith("/")
+                  ? slide.image
+                  : directusAssetUrl(slide.image)
+              })`,
+
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundBlendMode: "overlay",
@@ -87,6 +92,22 @@ export default function HeroCarousel() {
           >
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+
+            <div className="relative z-10 w-full flex flex-col items-center justify-center text-center px-4 md:px-8 lg:px-16">
+              <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">
+                {slide.title}
+              </h1>
+              {slide.subtitle && (
+                <p className="text-white text-base md:text-lg lg:text-xl mb-6 opacity-90 drop-shadow-md">
+                  {slide.subtitle}
+                </p>
+              )}
+              {slide.buttonText && (
+                <button className="bg-gradient-to-r from-[#4381df] to-[#3455a6] text-white font-bold py-3 px-8 md:py-4 md:px-12 rounded-lg hover:from-[#3455a6] hover:to-[#4381df] transition-all duration-300 transform hover:scale-105 shadow-xl border border-white border-opacity-20">
+                  {slide.buttonText}
+                </button>
+              )}
+            </div>
 
             {/* Content
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 carousel-content">

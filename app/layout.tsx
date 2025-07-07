@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import SearchBar from "@/components/SearchBar";
 import Navigation from "@/components/Navigation";
 import HeroCarousel from "@/components/HeroCarousel";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: "أبيض X أزرق",
@@ -21,37 +22,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <header>
-          <nav className="bg-black p-3 text-white">
-            <div className="items-center justify-between flex px-10 lg:px-0 lg:w-[70%] mx-auto">
-              <SearchBar />
-              <div className="md:block hidden">
-                {new Date().toLocaleDateString("ar-EG", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </div>
-              <div className="cursor-pointer md:hidden block">
-                <div className="w-4 h-0.5 bg-white"></div>
-                <div className="w-4 h-0.5 my-1 bg-white"></div>
-                <div className="w-4 h-0.5 bg-white"></div>
-              </div>
-            </div>
-          </nav>
-          <div className="bg-gradient-to-r from-[#4381df] to-[#3455a6]">
-            <a href="/">
-              <img
-                src="/images/4eb65c7c-afd1-4488-b3cb-9658f84eb7a4_removalai_preview.png"
-                alt=""
-                className="w-[30%] object-cover mx-auto"
-              />
-            </a>
-          </div>
-
-          <HeroCarousel />
-          <Navigation />
-        </header>
+        <Header />
 
         <main className="pt-8">{children}</main>
 

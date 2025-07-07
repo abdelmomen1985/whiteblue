@@ -25,47 +25,29 @@ export default function SearchBar() {
     }
   };
 
-  const clearSearch = () => {
-    setSearchTerm("");
-  };
-
   return (
     <form
       onSubmit={handleSearch}
-      className="flex justify-between items-center gap-x-5"
+      className="relative max-w-md w-full"
       role="search"
     >
-      <div className="relative flex items-center">
-        <input
-          type="search"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyPress={handleKeyPress}
-          className="p-1 outline-none bg-transparent pr-6"
-          placeholder="اكتب كلمة البحث"
-          aria-label="البحث في المقالات"
-          name="search"
-        />
-      </div>
+      <input
+        type="search"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyPress={handleKeyPress}
+        className="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg px-4 py-2 text-white placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 pr-10"
+        placeholder="بحث"
+        aria-label="البحث في المقالات"
+        name="search"
+      />
       <button
         type="submit"
-        className={`transition-all duration-300 ${
-          searchTerm.trim()
-            ? "text-white hover:text-[#3454a5] cursor-pointer"
-            : "text-gray-400 cursor-default"
-        }`}
-        disabled={!searchTerm.trim()}
-        title={searchTerm.trim() ? "البحث" : "اكتب كلمة البحث أولاً"}
+        className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white opacity-80 hover:opacity-100 transition-opacity duration-300"
         aria-label="بحث"
       >
         <i className="fa-solid fa-magnifying-glass"></i>
       </button>
-      <a
-        href="#"
-        className="transition-all duration-300 md:block hidden hover:text-[#3454a5]"
-      >
-        خليك معانا
-      </a>
     </form>
   );
 }

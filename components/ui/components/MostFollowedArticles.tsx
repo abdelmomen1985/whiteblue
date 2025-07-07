@@ -38,20 +38,22 @@ export default async function MostFollowedArticles() {
   const renderArticle = (article: ArticleType) => (
     <div
       key={article.id}
-      className="items-center md:w-[45%] w-full flex py-2 px-4 justify-end text-end gap-x-5"
+      className="items-center w-full flex py-3 px-2 justify-end text-end gap-x-4"
     >
-      <div>
+      <div className="flex-1">
         <Link
           href={`/articles/${article.slug}`}
-          className="font-bold hover:text-[#3454a5] transition-all duration-300"
+          className="font-bold hover:text-[#3454a5] transition-all duration-300 text-sm leading-tight"
         >
           {article.title}
         </Link>
         {article.created_at && (
-          <p className="font-thin">{formatDate(article.created_at)}</p>
+          <p className="font-thin text-xs mt-1 text-gray-600">
+            {formatDate(article.created_at)}
+          </p>
         )}
       </div>
-      <div className="max-w-[160px] max-h-[200px]">
+      <div className="w-20 h-20 flex-shrink-0">
         {article.featured?.id && (
           <img
             src={directusAssetUrl(article.featured.id as string)}
@@ -64,22 +66,9 @@ export default async function MostFollowedArticles() {
   );
 
   return (
-    <div className="flex w-full flex-wrap my-10 xl:my-0 items-center xl:w-1/2">
-      {firstPair.length > 0 && (
-        <div className="flex flex-wrap w-full">
-          {" "}
-          {/* Ensure full width for wrapping */}
-          {firstPair.map(renderArticle)}
-        </div>
-      )}
-      {secondPair.length > 0 && (
-        <div className="flex flex-wrap w-full">
-          {" "}
-          {/* Ensure full width for wrapping */}
-          {secondPair.map(renderArticle)}
-        </div>
-      )}
-      <div className="bg-gray-200 hidden xl:block w-[85%] mx-auto h-[1px]"></div>
+    <div className="flex w-full flex-col my-10 xl:my-0 xl:w-1/2">
+      <div className="space-y-2">{visibleArticles.map(renderArticle)}</div>
+      <div className="bg-gray-200 hidden xl:block w-[85%] mx-auto h-[1px] mt-6"></div>
     </div>
   );
 }

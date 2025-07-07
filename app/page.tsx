@@ -50,8 +50,32 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="section-1 my-5 py-5">
-          <div className="md:w-[90%] mx-auto">
+        <div className="section-1 my-5 py-5 relative">
+          {/* Side Banners - Hidden on mobile and tablet */}
+          <div className="hidden 2xl:block">
+            {/* Left Side Banner */}
+            <div className="absolute left-4 top-0 bottom-0 flex items-center">
+              <div className="sticky top-1/2 transform -translate-y-1/2">
+                <img
+                  src="/images/ads-side.png"
+                  alt="Advertisement"
+                  className="w-40 h-auto"
+                />
+              </div>
+            </div>
+            {/* Right Side Banner */}
+            <div className="absolute right-4 top-0 bottom-0 flex items-center">
+              <div className="sticky top-1/2 transform -translate-y-1/2">
+                <img
+                  src="/images/ads-side.png"
+                  alt="Advertisement"
+                  className="w-40 h-auto"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="md:w-[70%] mx-auto">
             <h2 className="text-2xl block w-full text-center font-bold p-4">
               الأكثر متابعة هذا الشهر
             </h2>
@@ -88,6 +112,28 @@ export default async function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Pattern Separator with Ad Banner */}
+        <div className="relative h-28 p-2">
+          {/* Pattern background */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "url('/images/pattern.png')",
+              backgroundRepeat: "repeat",
+              backgroundColor: "#3454a5",
+              backgroundBlendMode: "multiply",
+            }}
+          ></div>
+          {/* Centered advertisement banner */}
+          <div className="relative h-full flex items-center justify-center">
+            <img
+              src="/images/ads-banner.png"
+              alt="Advertisement Banner"
+              className="h-full object-contain"
+            />
           </div>
         </div>
 

@@ -28,16 +28,28 @@ export default async function Home() {
       <div>
         {/* Dynamic Article Cards - Server Side */}
         <KhaliBalakArticles />
-        {/* Pattern Separator */}
-        <div
-          className="h-28 "
-          style={{
-            backgroundImage: "url('/images/pattern.png')",
-            backgroundRepeat: "repeat",
-            backgroundColor: "#3454a5",
-            backgroundBlendMode: "multiply",
-          }}
-        ></div>
+        {/* Pattern Separator with Ad Banner */}
+        <div className="relative h-28 p-2">
+          {/* Pattern background */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "url('/images/pattern.png')",
+              backgroundRepeat: "repeat",
+              backgroundColor: "#3454a5",
+              backgroundBlendMode: "multiply",
+            }}
+          ></div>
+          {/* Centered advertisement banner */}
+          <div className="relative h-full flex items-center justify-center">
+            <img
+              src="/images/ads-banner.png"
+              alt="Advertisement Banner"
+              className="h-full object-contain"
+            />
+          </div>
+        </div>
+
         <div className="section-1 my-5 py-5">
           <div className="md:w-[90%] mx-auto">
             <h2 className="text-2xl block w-full text-center font-bold p-4">
@@ -85,7 +97,7 @@ export default async function Home() {
           <div className="w-[90%] mx-auto flex justify-between py-5">
             <h2 className="text-2xl">شاهد قبل الحذف</h2>
             <a
-              className="bg-black text-sm p-3 rounded-full text-white font-semibold transition-all duration-300 hover:bg-[#3454a5]"
+              className="border border-[#3454a5] text-sm p-3 rounded-full text-[#3454a5] font-semibold transition-all duration-300 hover:bg-[#3454a5] hover:text-white"
               href=""
             >
               المزيد من الفيديوهات

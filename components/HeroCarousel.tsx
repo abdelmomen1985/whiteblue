@@ -9,7 +9,7 @@ const slides = [
     title:
       'عرض مسرحية "الملك لير" بطولة الفنان يحيى الفخراني بداية من يوم الأحد ٢٩ يونيو',
     subtitle: "إكلك معجني ولسعي",
-    buttonText: "حقيق إستنابل",
+    buttonText: "شاهد الآن",
     bgGradient: "from-amber-600 to-amber-800",
   },
   {
@@ -18,7 +18,7 @@ const slides = [
     title:
       'عرض مسرحية "الملك لير" بطولة الفنان يحيى الفخراني بداية من يوم الأحد ٢٩ يونيو',
     subtitle: "مستحضر من أجود أنواع الفضة",
-    buttonText: "إبيض في الزرق",
+    buttonText: "شاهد الآن",
     bgGradient: "from-blue-600 to-blue-800",
   },
   {
@@ -36,7 +36,7 @@ const slides = [
     title:
       'عرض مسرحية "الملك لير" بطولة الفنان يحيى الفخراني بداية من يوم الأحد ٢٩ يونيو',
     subtitle: "أحدث الأفلام والمراجعات",
-    buttonText: "استكشف السينما",
+    buttonText: "شاهد الآن",
     bgGradient: "from-red-600 to-red-800",
   },
 ];

@@ -6,7 +6,8 @@ const slides = [
   {
     id: 1,
     image: "/images/fakharny.png",
-    title: "مع إستنابل، إستخرج حقيق السنابل",
+    title:
+      'عرض مسرحية "الملك لير" بطولة الفنان يحيى الفخراني بداية من يوم الأحد ٢٩ يونيو',
     subtitle: "إكلك معجني ولسعي",
     buttonText: "حقيق إستنابل",
     bgGradient: "from-amber-600 to-amber-800",
@@ -14,7 +15,8 @@ const slides = [
   {
     id: 2,
     image: "/images/fakharny.png",
-    title: "ميلك بالصحة",
+    title:
+      'عرض مسرحية "الملك لير" بطولة الفنان يحيى الفخراني بداية من يوم الأحد ٢٩ يونيو',
     subtitle: "مستحضر من أجود أنواع الفضة",
     buttonText: "إبيض في الزرق",
     bgGradient: "from-blue-600 to-blue-800",
@@ -22,7 +24,8 @@ const slides = [
   {
     id: 3,
     image: "/images/fakharny.png",
-    title: "شاهد قبل الحذف",
+    title:
+      'عرض مسرحية "الملك لير" بطولة الفنان يحيى الفخراني بداية من يوم الأحد ٢٩ يونيو',
     subtitle: "محتوى حصري ومميز",
     buttonText: "شاهد الآن",
     bgGradient: "from-purple-600 to-purple-800",
@@ -30,7 +33,8 @@ const slides = [
   {
     id: 4,
     image: "/images/fakharny.png",
-    title: "دليل السينما",
+    title:
+      'عرض مسرحية "الملك لير" بطولة الفنان يحيى الفخراني بداية من يوم الأحد ٢٩ يونيو',
     subtitle: "أحدث الأفلام والمراجعات",
     buttonText: "استكشف السينما",
     bgGradient: "from-red-600 to-red-800",
@@ -65,14 +69,14 @@ export default function HeroCarousel() {
 
   return (
     <div
-      className="relative  w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden carousel-container"
+      className="relative  w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden carousel-container"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
       {/* Slides */}
       <div
         className="flex transition-transform duration-500 ease-in-out h-full carousel-slide"
-        style={{ transform: `translateX(${currentSlide * 100}%)` }}
+        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {slides.map((slide, index) => (
           <div
@@ -86,7 +90,7 @@ export default function HeroCarousel() {
               })`,
 
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "top",
               backgroundBlendMode: "overlay",
             }}
           >

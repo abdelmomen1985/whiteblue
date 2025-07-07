@@ -26,165 +26,92 @@ export default function RootLayout({ children }) {
 
         <main className="pt-8">{children}</main>
 
-        <footer className="section-8 bg-black text-white my-5 py-5">
-          <div className="w-[90%] mx-auto">
-            <img
-              src="/images/Asset 2.png"
-              className="w-32 mx-auto rounded-full"
-              alt=""
-            />
-            <div>
-              <ul className="flex flex-wrap gap-x-5 justify-around w-[85%] mx-auto">
-                <li className="mt-5">
-                  <a
-                    className="hover:text-[#3454a5] transition-all duration-300"
-                    href=""
-                  >
-                    What is happening
-                  </a>
-                </li>
-                <li className="mt-5">
-                  <a
-                    className="hover:text-[#3454a5] transition-all duration-300"
-                    href=""
-                  >
-                    stories
-                  </a>
-                </li>
-                <li className="mt-5">
-                  <a
-                    className="hover:text-[#3454a5] transition-all duration-300"
-                    href=""
-                  >
-                    dialogues
-                  </a>
-                </li>
-                <li className="mt-5">
-                  <a
-                    className="hover:text-[#3454a5] transition-all duration-300"
-                    href=""
-                  >
-                    Sima and Music
-                  </a>
-                </li>
-                <li className="mt-5">
-                  <a
-                    className="hover:text-[#3454a5] transition-all duration-300"
-                    href=""
-                  >
-                    the fifth will amaze you
-                  </a>
-                </li>
-                <li className="mt-5">
-                  <a
-                    className="hover:text-[#3454a5] transition-all duration-300"
-                    href=""
-                  >
-                    Watch before it is deleted
-                  </a>
-                </li>
-                <li className="mt-5">
-                  <a
-                    className="hover:text-[#3454a5] transition-all duration-300"
-                    href=""
-                  >
-                    Buy from me
-                  </a>
-                </li>
-                <li className="mt-5">
-                  <a
-                    className="hover:text-[#3454a5] transition-all duration-300"
-                    href=""
-                  >
-                    Exits
-                  </a>
-                </li>
-                <li className="mt-5">
-                  <a
-                    className="hover:text-[#3454a5] transition-all duration-300"
-                    href=""
-                  >
-                    Cinema Guide
-                  </a>
-                </li>
-              </ul>
+        <footer className="mt-10">
+          {/* Logo section with gradient background */}
+          <div className="bg-gradient-to-r from-[#3454a5] to-[#4a6bc7] py-12">
+            <div className="flex flex-col items-center justify-center text-white">
+              <img
+                src="/images/4eb65c7c-afd1-4488-b3cb-9658f84eb7a4_removalai_preview.png"
+                className=" h-64 object-contain "
+                alt="Logo"
+              />
             </div>
-            <div className="text-center flex items-center justify-around my-10">
-              <div className="h-[0.2px] w-[30%] bg-gray-700 rounded-full"></div>
-              <div>
-                <a href="">
-                  <i className="fa-brands mx-1 fa-twitter py-4 px-4 border rounded-full hover:bg-[#3454a5] transition-all duration-300"></i>
-                </a>
-                <a href="">
-                  <i className="fa-brands mx-1 fa-facebook-f py-4 px-5 border rounded-full hover:bg-[#3454a5] transition-all duration-300"></i>
-                </a>
-                <a href="">
-                  <i className="fa-brands mx-1 fa-youtube py-4 px-4 border rounded-full hover:bg-[#3454a5] transition-all duration-300"></i>
-                </a>
-                <a href="">
-                  <i className="fa-brands mx-1 fa-instagram py-4 px-4 border rounded-full hover:bg-[#3454a5] transition-all duration-300"></i>
-                </a>
-              </div>
-              <div className="h-[0.2px] w-[30%] bg-gray-700 rounded-full"></div>
-            </div>
+          </div>
 
-            <div className="flex gap-4 mt-16 justify-evenly flex-wrap">
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-1.jpeg"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
+          {/* Social links section with lighter blue background */}
+          <div className="bg-[#5a7dd1] py-8">
+            <div className="flex justify-center items-center gap-4">
+              <div className="h-[1px] w-32 bg-white/30"></div>
+              <p className="text-white text-sm whitespace-nowrap">
+                خليك علي تواصل وتفاعل
+              </p>
+              <div className="h-[1px] w-32 bg-white/30"></div>
+              <a
+                href=""
+                className="text-white hover:text-gray-200 transition-colors duration-300 w-10 h-10 flex items-center justify-center border border-white/30 rounded-full hover:bg-white/20 transition-all duration-300"
+              >
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href=""
+                className="text-white hover:text-gray-200 transition-colors duration-300 w-10 h-10 flex items-center justify-center border border-white/30 rounded-full hover:bg-white/20 transition-all duration-300"
+              >
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a
+                href=""
+                className="text-white hover:text-gray-200 transition-colors duration-300 w-10 h-10 flex items-center justify-center border border-white/30 rounded-full hover:bg-white/20 transition-all duration-300"
+              >
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a
+                href=""
+                className="text-white hover:text-gray-200 transition-colors duration-300 w-10 h-10 flex items-center justify-center border border-white/30 rounded-full hover:bg-white/20 transition-all duration-300"
+              >
+                <i className="fab fa-youtube"></i>
+              </a>
+              <a
+                href=""
+                className="text-white hover:text-gray-200 transition-colors duration-300 w-10 h-10 flex items-center justify-center border border-white/30 rounded-full hover:bg-white/20 transition-all duration-300"
+              >
+                <i className="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* Partners section with white background */}
+          <div className="bg-white py-8">
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="flex items-center justify-center gap-8 flex-wrap">
+                <div className="flex items-center justify-center h-16">
+                  <img
+                    src="/images/fot-1.jpeg"
+                    className="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    alt="Partner 1"
+                  />
+                </div>
+                <div className="flex items-center justify-center h-16">
+                  <img
+                    src="/images/fot-2.png"
+                    className="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    alt="Partner 2"
+                  />
+                </div>
+                <div className="flex items-center justify-center h-16">
+                  <img
+                    src="/images/fot-3.jpg"
+                    className="h-12 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    alt="Partner 3"
+                  />
+                </div>
               </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-2.png"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-3.jpg"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-1.jpeg"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-3.jpg"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-2.png"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-7.png"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
-              <div className="w-[12%]">
-                <img
-                  src="/images/fot-8.png"
-                  className="w-20 opacity-50 hover:opacity-100 transition-all duration-300 cursor-pointer"
-                  alt=""
-                />
-              </div>
+            </div>
+          </div>
+
+          {/* Copyright section */}
+          <div className="bg-[#3454a5] py-4">
+            <div className="text-center text-white text-sm">
+              <p>© 2024 Copyright by أبيض X أزرق - All Rights Reserved.</p>
             </div>
           </div>
         </footer>

@@ -2,6 +2,7 @@
 
 import { ArticlesByTagReturnType } from "@/lib/queries";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 interface KhaliBalakArticlesCarouselProps {
@@ -94,19 +95,34 @@ export default function KhaliBalakArticlesCarousel({
           {articles.map((article) => (
             <div key={article.id} className="w-full flex-shrink-0">
               <div className="cards flex justify-around">
-                <div className="card w-[70%]">
-                  <p className="bg-[#3454a5] text-white font-semibold p-2 rounded-md w-fit ms-auto">
-                    {tagName}
-                  </p>
-                  <Link
-                    href={article.slug ? `/articles/${article.slug}` : "#"}
-                    className="transition-all duration-300 hover:text-[#3454a5] my-2 block"
-                  >
-                    {article.title}
-                  </Link>
-                  <p className="opacity-70 text-sm">
-                    {article.created_at ? formatDate(article.created_at) : ""}
-                  </p>
+                <div className="card w-[90%] bg-white rounded-lg shadow-md overflow-hidden">
+                  <div className="flex items-center">
+                    <div className="flex-1 p-4">
+                      <p className="bg-[#3454a5] text-white font-semibold p-2 rounded-md w-fit text-sm mb-2">
+                        {tagName}
+                      </p>
+                      <Link
+                        href={article.slug ? `/articles/${article.slug}` : "#"}
+                        className="transition-all duration-300 hover:text-[#3454a5] block text-lg font-medium leading-tight mb-2"
+                      >
+                        {article.title}
+                      </Link>
+                      <p className="opacity-70 text-sm">
+                        {article.created_at
+                          ? formatDate(article.created_at)
+                          : ""}
+                      </p>
+                    </div>
+                    <div className="w-24 h-24 flex-shrink-0 m-4">
+                      <Image
+                        src="/images/angham.png"
+                        alt={article.title}
+                        width={96}
+                        height={96}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -155,21 +171,42 @@ export default function KhaliBalakArticlesCarousel({
                   }
 
                   return (
-                    <div className={cardClasses} key={article.id}>
-                      <p className="bg-[#3454a5] text-white font-semibold p-2 rounded-md w-fit ms-auto">
-                        {tagName}
-                      </p>
-                      <Link
-                        href={article.slug ? `/articles/${article.slug}` : "#"}
-                        className="transition-all duration-300 hover:text-[#3454a5] my-2 block"
-                      >
-                        {article.title}
-                      </Link>
-                      <p className="opacity-70 text-sm">
-                        {article.created_at
-                          ? formatDate(article.created_at)
-                          : ""}
-                      </p>
+                    <div
+                      className={
+                        cardClasses +
+                        " bg-white rounded-lg shadow-md overflow-hidden"
+                      }
+                      key={article.id}
+                    >
+                      <div className="flex items-center h-24">
+                        <div className="flex-1 p-4">
+                          <p className="bg-[#3454a5] text-white font-semibold p-1 px-2 rounded-md w-fit text-xs mb-1">
+                            {tagName}
+                          </p>
+                          <Link
+                            href={
+                              article.slug ? `/articles/${article.slug}` : "#"
+                            }
+                            className="transition-all duration-300 hover:text-[#3454a5] block text-sm font-medium leading-tight mb-1"
+                          >
+                            {article.title}
+                          </Link>
+                          <p className="opacity-70 text-xs">
+                            {article.created_at
+                              ? formatDate(article.created_at)
+                              : ""}
+                          </p>
+                        </div>
+                        <div className="w-16 h-16 flex-shrink-0 m-4">
+                          <Image
+                            src="/images/angham.png"
+                            alt={article.title}
+                            width={64}
+                            height={64}
+                            className="w-full h-full object-cover rounded-lg"
+                          />
+                        </div>
+                      </div>
                     </div>
                   );
                 })}

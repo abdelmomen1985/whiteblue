@@ -3,9 +3,11 @@ import { useState } from "react";
 import SearchBar from "@/components/SearchBar";
 import Navigation from "@/components/Navigation";
 import HeroCarousel from "@/components/HeroCarousel";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header>
@@ -31,7 +33,7 @@ export default function Header() {
                 <img
                   src="/images/4eb65c7c-afd1-4488-b3cb-9658f84eb7a4_removalai_preview.png"
                   alt="أبيض X أزرق"
-                  className="h-10 md:h-12 w-auto"
+                  className="h-10 md:h-32 w-auto"
                 />
               </a>
             </div>
@@ -60,58 +62,44 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-1 mr-8">
               <a
                 href="/"
-                className="px-3 py-2 text-sm font-medium hover:bg-white hover:bg-opacity-20 rounded transition-all duration-300"
+                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                  pathname === "/"
+                    ? "bg-white bg-opacity-20"
+                    : "hover:bg-white hover:bg-opacity-20"
+                }`}
               >
                 خليك معانا
               </a>
               <a
                 href="/contact"
-                className="px-3 py-2 text-sm font-medium hover:bg-white hover:bg-opacity-20 rounded transition-all duration-300"
+                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                  pathname === "/contact"
+                    ? "bg-white bg-opacity-20"
+                    : "hover:bg-white hover:bg-opacity-20"
+                }`}
               >
                 تواصل معنا
               </a>
               <a
                 href="/about"
-                className="px-3 py-2 text-sm font-medium hover:bg-white hover:bg-opacity-20 rounded transition-all duration-300"
+                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                  pathname === "/about"
+                    ? "bg-white bg-opacity-20"
+                    : "hover:bg-white hover:bg-opacity-20"
+                }`}
               >
                 من نحن
               </a>
               <a
                 href="/articles"
-                className="px-3 py-2 text-sm font-medium hover:bg-white hover:bg-opacity-20 rounded transition-all duration-300"
+                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                  pathname.startsWith("/articles")
+                    ? "bg-white bg-opacity-20"
+                    : "hover:bg-white hover:bg-opacity-20"
+                }`}
               >
                 المقالات
               </a>
-
-              {/* Dropdown for التلفزيون */}
-              <div className="relative group">
-                <button className="px-3 py-2 text-sm font-medium hover:bg-white hover:bg-opacity-20 rounded transition-all duration-300 flex items-center gap-1">
-                  التلفزيون{" "}
-                  <i className="fa-solid fa-caret-down text-xs"></i>
-                </button>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                  <div className="p-2">
-                    <a
-                      href="#"
-                      className="block px-3 py-2 text-sm text-gray-700 hover:text-[#3454a5] hover:bg-gray-50 rounded transition-all duration-300"
-                    >
-                      البرامج
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-3 py-2 text-sm text-gray-700 hover:text-[#3454a5] hover:bg-gray-50 rounded transition-all duration-300"
-                    >
-                      المسلسلات
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-3 py-2 text-sm text-gray-700 hover:text-[#3454a5] hover:bg-gray-50 rounded transition-all duration-300"
-                    >
-                      الأفلام
-                    </a>
-                  </div>
-                </div>
-              </div>
 
               {/* Dropdown for القنوات */}
               <div className="relative group">
@@ -158,7 +146,7 @@ export default function Header() {
                 href="#"
                 className="bg-cyan-400 text-blue-900 px-3 py-2 text-sm font-bold rounded hover:bg-cyan-300 transition-all duration-300"
               >
-                لمس أزرق
+                ابيض X أزرق
               </a>
             </div>
 
@@ -166,7 +154,11 @@ export default function Header() {
             <div className="hidden md:flex lg:hidden items-center gap-2">
               <a
                 href="/articles"
-                className="px-2 py-1 text-sm font-medium hover:bg-white hover:bg-opacity-20 rounded transition-all duration-300"
+                className={`px-2 py-1 text-sm font-medium rounded transition-all duration-300 ${
+                  pathname.startsWith("/articles")
+                    ? "bg-white bg-opacity-20"
+                    : "hover:bg-white hover:bg-opacity-20"
+                }`}
               >
                 المقالات
               </a>
@@ -202,14 +194,22 @@ export default function Header() {
             <div className="flex flex-col space-y-3">
               <a
                 href="/"
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#3454a5] hover:bg-gray-50 rounded transition-all duration-300"
+                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                  pathname === "/"
+                    ? "bg-gray-200 text-[#3454a5]"
+                    : "text-gray-700 hover:text-[#3454a5] hover:bg-gray-50"
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 خليك معانا
               </a>
               <a
                 href="/articles"
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#3454a5] hover:bg-gray-50 rounded transition-all duration-300"
+                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                  pathname.startsWith("/articles")
+                    ? "bg-gray-200 text-[#3454a5]"
+                    : "text-gray-700 hover:text-[#3454a5] hover:bg-gray-50"
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 المقالات

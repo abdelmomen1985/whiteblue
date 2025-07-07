@@ -88,7 +88,7 @@ export default function HeroCarousel() {
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
-            {/* Content 
+            {/* Content
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 carousel-content">
               <div className="text-white text-right flex items-center justify-between">
                 <div className="flex-1 carousel-fade-in">
@@ -102,7 +102,7 @@ export default function HeroCarousel() {
                     {slide.buttonText}
                   </button>
                 </div>
-                
+
                 <div className="hidden lg:block flex-shrink-0 ml-8">
                   <div className="w-48 h-48 bg-white bg-opacity-10 rounded-2xl backdrop-blur-custom border border-white border-opacity-20 flex items-center justify-center">
                     <i className="fa-solid fa-image text-4xl text-white opacity-60"></i>

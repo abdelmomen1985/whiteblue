@@ -28,7 +28,16 @@ export default async function Home() {
       <div>
         {/* Dynamic Article Cards - Server Side */}
         <KhaliBalakArticles />
-
+        {/* Pattern Separator */}
+        <div
+          className="h-28 "
+          style={{
+            backgroundImage: "url('/images/pattern.png')",
+            backgroundRepeat: "repeat",
+            backgroundColor: "#3454a5",
+            backgroundBlendMode: "multiply",
+          }}
+        ></div>
         <div className="section-1 my-5 py-5">
           <div className="md:w-[90%] mx-auto">
             <h2 className="text-2xl block w-full text-center font-bold p-4">
@@ -69,17 +78,6 @@ export default async function Home() {
             </div>
           </div>
         </div>
-
-        {/* Pattern Separator */}
-        <div
-          className="h-16 my-8"
-          style={{
-            backgroundImage: "url('/images/pattern.png')",
-            backgroundRepeat: "repeat",
-            backgroundColor: "#3454a5",
-            backgroundBlendMode: "multiply",
-          }}
-        ></div>
 
         <CurrentNewsArticles />
 

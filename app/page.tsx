@@ -70,6 +70,17 @@ export default async function Home() {
           </div>
         </div>
 
+        {/* Pattern Separator */}
+        <div
+          className="h-16 my-8"
+          style={{
+            backgroundImage: "url('/images/pattern.png')",
+            backgroundRepeat: "repeat",
+            backgroundColor: "#3454a5",
+            backgroundBlendMode: "multiply",
+          }}
+        ></div>
+
         <CurrentNewsArticles />
 
         <div className="section-3 bg-gray-200 my-5 py-5">

@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
 
-        <main className="pt-8">{children}</main>
+        <main>{children}</main>
 
         <footer className="mt-10">
           {/* Logo section with gradient background */}

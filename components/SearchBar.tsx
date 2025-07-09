@@ -36,7 +36,7 @@ export default function SearchBar() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyPress={handleKeyPress}
-        className="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg px-4 py-2 text-white placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 pr-10"
+        className="w-full bg-white bg-opacity-20 border border-white border-opacity-30 px-4 py-2 text-white placeholder-white placeholder-opacity-80 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 pr-10"
         placeholder="بحث"
         aria-label="البحث في المقالات"
         name="search"

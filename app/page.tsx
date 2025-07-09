@@ -1,6 +1,7 @@
 import MostFollowedArticles from "../components/ui/components/MostFollowedArticles";
 import KhaliBalakArticles from "../components/ui/components/KhaliBalakArticles";
 import CurrentNewsArticles from "../components/ui/components/CurrentNewsArticles";
+import HeroCarousel from "../components/HeroCarousel";
 
 export const metadata = {
   title: "أبيض X أزرق - الرئيسية",
@@ -25,6 +26,7 @@ export default async function Home() {
         mediaId={site_settings.home_popup_image?.id}
         mediaType="image"
       />
+      <HeroCarousel />
       <div>
         {/* Dynamic Article Cards - Server Side */}
         <KhaliBalakArticles />
@@ -76,11 +78,10 @@ export default async function Home() {
           </div>
 
           <div className="md:w-[70%] mx-auto">
-            <h2 className="text-2xl block w-full text-center font-bold p-4">
+            <h2 className="text-2xl block w-full before:content-[''] before:absolute before:right-0 before:top-0 before:w-1 before:h-full before:bg-[#3454a5] font-bold p-4">
               الأكثر متابعة هذا الشهر
             </h2>
             <div className="xl:flex">
-              <MostFollowedArticles />
               <div className="mx-auto xl:w-1/2">
                 <div className="h-[500px] relative text-end">
                   <img
@@ -111,6 +112,7 @@ export default async function Home() {
                   </div>
                 </div>
               </div>
+              <MostFollowedArticles />
             </div>
           </div>
         </div>
@@ -141,7 +143,9 @@ export default async function Home() {
 
         <div className="section-3 bg-gray-200 my-5 py-5">
           <div className="w-[90%] mx-auto flex justify-between py-5">
-            <h2 className="text-2xl relative pr-4 before:content-[''] before:absolute before:right-0 before:top-0 before:w-1 before:h-full before:bg-[#3454a5]">شاهد قبل الحذف</h2>
+            <h2 className="text-2xl relative pr-4 before:content-[''] before:absolute before:right-0 before:top-0 before:w-1 before:h-full before:bg-[#3454a5]">
+              شاهد قبل الحذف
+            </h2>
             <a
               className="border border-[#3454a5] text-sm p-3 rounded-full text-[#3454a5] font-semibold transition-all duration-300 hover:bg-[#3454a5] hover:text-white"
               href=""

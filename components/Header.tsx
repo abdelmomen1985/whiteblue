@@ -2,7 +2,6 @@
 import { useState } from "react";
 import SearchBar from "@/components/SearchBar";
 import Navigation from "@/components/Navigation";
-import HeroCarousel from "@/components/HeroCarousel";
 import { usePathname } from "next/navigation";
 import { slugify } from "@/lib/utils";
 
@@ -53,17 +52,26 @@ export default function Header() {
       {/* Navigation Bar */}
       <div className="bg-gradient-to-r from-[#4381df] to-[#3455a6] text-white border-t border-white border-opacity-20">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-2">
-            {/* Search Bar */}
-            <div className="flex-1 max-w-xs md:max-w-md">
-              <SearchBar />
+          <div className="flex items-center py-3">
+            {/* Menu Icon */}
+            <div className="flex items-center mr-4">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 hover:bg-white hover:bg-opacity-20 transition-all duration-300"
+              >
+                <i
+                  className={`fa-solid ${
+                    isMobileMenuOpen ? "fa-times" : "fa-bars"
+                  }`}
+                ></i>
+              </button>
             </div>
 
             {/* Navigation Tabs - Desktop */}
-            <div className="hidden lg:flex items-center gap-1 mr-8">
+            <div className="hidden lg:flex items-center gap-1 flex-1">
               <a
                 href="/"
-                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   pathname === "/"
                     ? "bg-white bg-opacity-20"
                     : "hover:bg-white hover:bg-opacity-20"
@@ -73,7 +81,7 @@ export default function Header() {
               </a>
               <a
                 href="/contact"
-                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   pathname === "/contact"
                     ? "bg-white bg-opacity-20"
                     : "hover:bg-white hover:bg-opacity-20"
@@ -83,7 +91,7 @@ export default function Header() {
               </a>
               <a
                 href="/about"
-                className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+                className={`px-4 py-2 text-sm font-medium transition-all duration-300 ${
                   pathname === "/about"
                     ? "bg-white bg-opacity-20"
                     : "hover:bg-white hover:bg-opacity-20"
@@ -94,7 +102,7 @@ export default function Header() {
               <div className="relative group">
                 <a
                   href="/articles"
-                  className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 flex items-center gap-1 ${
+                  className={`px-4 py-2 text-sm font-medium transition-all duration-300 flex items-center gap-1 ${
                     pathname.startsWith("/articles")
                       ? "bg-white bg-opacity-20"
                       : "hover:bg-white hover:bg-opacity-20"
@@ -133,7 +141,7 @@ export default function Header() {
 
               {/* Dropdown for القنوات */}
               <div className="relative group">
-                <button className="px-3 py-2 text-sm font-medium hover:bg-white hover:bg-opacity-20 rounded transition-all duration-300 flex items-center gap-1">
+                <button className="px-4 py-2 text-sm font-medium hover:bg-white hover:bg-opacity-20 transition-all duration-300 flex items-center gap-1">
                   القنوات <i className="fa-solid fa-caret-down text-xs"></i>
                 </button>
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -174,17 +182,17 @@ export default function Header() {
 
               <a
                 href="#"
-                className="bg-cyan-400 text-blue-900 px-3 py-2 text-sm font-bold rounded hover:bg-cyan-300 transition-all duration-300"
+                className="bg-cyan-400 text-blue-900 px-4 py-2 text-sm font-bold hover:bg-cyan-300 transition-all duration-300"
               >
                 ابيض X أزرق
               </a>
             </div>
 
             {/* Mobile Navigation */}
-            <div className="hidden md:flex lg:hidden items-center gap-2">
+            <div className="hidden md:flex lg:hidden items-center gap-2 flex-1">
               <a
                 href="/articles"
-                className={`px-2 py-1 text-sm font-medium rounded transition-all duration-300 ${
+                className={`px-3 py-2 text-sm font-medium transition-all duration-300 ${
                   pathname.startsWith("/articles")
                     ? "bg-white bg-opacity-20"
                     : "hover:bg-white hover:bg-opacity-20"
@@ -194,24 +202,15 @@ export default function Header() {
               </a>
               <a
                 href="#"
-                className="bg-cyan-400 text-blue-900 px-2 py-1 text-sm font-bold rounded hover:bg-cyan-300 transition-all duration-300"
+                className="bg-cyan-400 text-blue-900 px-3 py-2 text-sm font-bold hover:bg-cyan-300 transition-all duration-300"
               >
                 لمس أزرق
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 hover:bg-white hover:bg-opacity-20 rounded transition-all duration-300"
-              >
-                <i
-                  className={`fa-solid ${
-                    isMobileMenuOpen ? "fa-times" : "fa-bars"
-                  }`}
-                ></i>
-              </button>
+            {/* Search Bar */}
+            <div className="flex-shrink-0 max-w-xs md:max-w-md">
+              <SearchBar />
             </div>
           </div>
         </div>
@@ -271,8 +270,6 @@ export default function Header() {
           </div>
         </div>
       )}
-
-      <HeroCarousel />
     </header>
   );
 }

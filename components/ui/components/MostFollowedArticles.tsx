@@ -25,54 +25,56 @@ export default async function MostFollowedArticles() {
   const articles = await getArticlesByTag("الأكثر متابعة");
 
   // Ensure articles is an array and limit to 4, or fewer if not enough articles
-  const visibleArticles = (articles || []).slice(0, 4);
+  const visibleArticles = (articles || []).slice(0, 3);
 
   if (!visibleArticles.length) {
     return <p>لا توجد مقالات حالياً.</p>; // Or some other placeholder
   }
 
-  // Split articles into two pairs for layout
-  const firstPair = visibleArticles.slice(0, 2);
-  const secondPair = visibleArticles.slice(2, 4);
-
   const renderArticle = (article: ArticleType, index: number) => (
     <div
       key={article.id}
-      className="items-center w-full flex py-3 px-2 justify-end text-end gap-x-4 border-b border-gray-200 last:border-b-0"
+      className="flex items-center gap-1 p-1 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 group"
     >
-      <div className="flex-1">
+      <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden">
+        {article.featured?.id && (
+          <img
+            src={directusAssetUrl(article.featured.id as string)}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            alt={article.title || "Article image"}
+          />
+        )}
+      </div>
+      <div className="flex-1 text-right">
         <Link
           href={`/articles/${article.slug}`}
-          className="font-bold hover:text-[#3454a5] transition-all duration-300 text-sm leading-tight block"
+          className="block font-bold text-gray-800 group-hover:text-[#3454a5] transition-colors duration-300 text-sm leading-tight mb-1"
         >
           {article.title}
         </Link>
         {article.created_at && (
-          <p className="font-thin text-xs mt-1 text-gray-600">
+          <p className="text-xs text-gray-500 mb-1">
             {formatDate(article.created_at)}
           </p>
         )}
-      </div>
-      <div className="w-16 h-16 flex-shrink-0">
-        {article.featured?.id && (
-          <img
-            src={directusAssetUrl(article.featured.id as string)}
-            className="shadow-lg object-cover rounded-lg w-full h-full"
-            alt={article.title || "Article image"}
-          />
-        )}
+        <div className="flex items-center gap-2 justify-end">
+          <div className="flex items-center gap-1">
+            <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+            <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+            <div className="w-1 h-1 bg-blue-300 rounded-full"></div>
+          </div>
+        </div>
       </div>
     </div>
   );
 
   return (
-    <div className="flex w-full flex-col my-10 xl:my-0 xl:w-1/2">
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-        {visibleArticles.map((article, index) => renderArticle(article, index))}
-      </div>
+    <div className="flex w-full mx-4 flex-col my-10 xl:my-0 xl:w-1/2">
+      {/* Articles List */}
+      <div className="space-y-3 mb-6">{visibleArticles.map(renderArticle)}</div>
 
       {/* Social Media Section */}
-      <div className="mt-6 bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+      <div className=" bg-white rounded-lg shadow-sm border border-gray-200 p-4">
         <h3 className="text-center text-lg font-bold mb-4">
           خليك على تواصل وتفاعل
         </h3>

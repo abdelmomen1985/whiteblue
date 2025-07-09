@@ -78,7 +78,7 @@ export default async function Home() {
           </div>
 
           <div className="md:w-[70%] mx-auto">
-            <h2 className="text-2xl block w-full before:content-[''] before:absolute before:right-0 before:top-0 before:w-1 before:h-full before:bg-[#3454a5] font-bold p-4">
+            <h2 className="text-2xl block w-full relative before:content-[''] before:absolute before:right-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-8 before:bg-[#3454a5] font-bold p-4">
               الأكثر متابعة هذا الشهر
             </h2>
             <div className="xl:flex">

@@ -43,16 +43,16 @@ export default async function CurrentNewsArticles() {
           alt={article.title || "Article image"}
         />
       )}
-      <div className="p-2">
-        <div className="flex justify-between">
+      <div className="p-2 text-right">
+        <div className="flex justify-between items-center">
+          <p className="bg-[#3454a5] text-white font-semibold p-1 rounded-md w-fit">
+            أخبار مصر
+          </p>
           {article.created_at && (
             <p className="font-thin text-gray-600">
               {formatDate(article.created_at)}
             </p>
           )}
-          <p className="bg-[#3454a5] text-white font-semibold p-1 rounded-md w-fit">
-            أخبار مصر
-          </p>
         </div>
         <Link
           href={`/articles/${article.slug}`}

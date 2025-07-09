@@ -15,44 +15,65 @@ export default function Footer() {
   return (
     <footer className="mt-10">
       {/* Newsletter Signup Section */}
-      <div className="bg-gradient-to-r from-[#2c3e50] to-[#34495e] text-white py-16">
+      <div className="bg-gradient-to-r from-[#3454a5] to-[#4a6bc7] text-white py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-cyan-300">
-              سجل اشتراكك الآن في نشرتنا الدورية
-            </h2>
-            <p className="text-lg mb-8 opacity-80">
-              لتصلك آخر الأخبار والتحديثات الصحية من فريك حيث.
-            </p>
-            
-            {/* Newsletter Form */}
-            <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto">
-              <div className="flex rounded-full overflow-hidden shadow-lg">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="أدخل بريدك الإلكتروني"
-                  className="flex-1 px-6 py-4 text-gray-800 focus:outline-none text-right"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 px-8 py-4 font-bold transition-colors duration-300"
-                >
-                  سجل اشتراكك الآن
-                </button>
-              </div>
-            </form>
+          {/* Logo and Newsletter Side by Side */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-12">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <img
+                src="/images/4eb65c7c-afd1-4488-b3cb-9658f84eb7a4_removalai_preview.png"
+                className="h-32 lg:h-48 object-contain"
+                alt="Logo"
+              />
+            </div>
+
+            {/* Newsletter Content */}
+            <div className="flex-1 text-center lg:text-right">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-cyan-300">
+                سجل اشتراكك الآن في نشرتنا الدورية
+              </h2>
+              <p className="text-lg mb-8 opacity-80">
+                لتصلك آخر الأخبار والتحديثات الصحية من فريك حيث.
+              </p>
+
+              {/* Newsletter Form */}
+              <form
+                onSubmit={handleNewsletterSubmit}
+                className="max-w-md lg:mr-0 mx-auto"
+              >
+                <div className="flex rounded-full overflow-hidden shadow-lg">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="أدخل بريدك الإلكتروني"
+                    className="flex-1 px-6 py-4 text-gray-800 focus:outline-none text-right"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 px-8 py-4 font-bold transition-colors duration-300"
+                  >
+                    سجل اشتراكك الآن
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
 
           {/* Footer Links Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right">
             {/* About Section */}
             <div>
-              <h3 className="text-xl font-bold mb-4 text-cyan-300">هيلث حيث</h3>
+              <h3 className="text-xl font-bold mb-4 text-cyan-300">
+                {" "}
+                أبيض X أزرق{" "}
+              </h3>
               <p className="text-sm opacity-80 leading-relaxed">
-                هي منصة طبية تهدف إلى تحسين الوصول إلى الخدمة والمعلومات الطبية في مصر. نربط المنصة بين المرضى والمتخصصين والمؤسسات الطبية للحصول على الخدمات الطبية بطريقة آمنة وسهلة ومعالة وشفافة.
+                هي منصة طبية تهدف إلى تحسين الوصول إلى الخدمة والمعلومات الطبية
+                في مصر. نربط المنصة بين المرضى والمتخصصين والمؤسسات الطبية
+                للحصول على الخدمات الطبية بطريقة آمنة وسهلة ومعالة وشفافة.
               </p>
             </div>
 
@@ -60,34 +81,74 @@ export default function Footer() {
             <div>
               <h3 className="text-xl font-bold mb-4 text-cyan-300">الأقسام</h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-cyan-300 transition-colors duration-300">- شوبزوفي</a></li>
-                <li><a href="#" className="hover:text-cyan-300 transition-colors duration-300">- مستشفياتنا</a></li>
-                <li><a href="#" className="hover:text-cyan-300 transition-colors duration-300">- منصة الدواء</a></li>
-                <li><a href="#" className="hover:text-cyan-300 transition-colors duration-300">- سيرة مهنية</a></li>
-                <li><a href="#" className="hover:text-cyan-300 transition-colors duration-300">- الأقسام الطبية</a></li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-cyan-300 transition-colors duration-300"
+                  >
+                    - شوبزوفي
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-cyan-300 transition-colors duration-300"
+                  >
+                    - مستشفياتنا
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-cyan-300 transition-colors duration-300"
+                  >
+                    - منصة الدواء
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-cyan-300 transition-colors duration-300"
+                  >
+                    - سيرة مهنية
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-cyan-300 transition-colors duration-300"
+                  >
+                    - الأقسام الطبية
+                  </a>
+                </li>
               </ul>
             </div>
 
             {/* User Guide */}
             <div>
-              <h3 className="text-xl font-bold mb-4 text-cyan-300">دليل المستخدم</h3>
+              <h3 className="text-xl font-bold mb-4 text-cyan-300">
+                دليل المستخدم
+              </h3>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-cyan-300 transition-colors duration-300">- سياسة الخصوصية</a></li>
-                <li><a href="#" className="hover:text-cyan-300 transition-colors duration-300">- الشروط والأحكام</a></li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-cyan-300 transition-colors duration-300"
+                  >
+                    - سياسة الخصوصية
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-cyan-300 transition-colors duration-300"
+                  >
+                    - الشروط والأحكام
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Logo section with gradient background */}
-      <div className="bg-gradient-to-r from-[#3454a5] to-[#4a6bc7] py-12">
-        <div className="flex flex-col items-center justify-center text-white">
-          <img
-            src="/images/4eb65c7c-afd1-4488-b3cb-9658f84eb7a4_removalai_preview.png"
-            className="h-64 object-contain"
-            alt="Logo"
-          />
         </div>
       </div>
 

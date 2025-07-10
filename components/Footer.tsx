@@ -1,9 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import { slugify } from "@/lib/utils";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  
+  const categories = [
+    "الصحة الجنسية",
+    "التجميل",
+    "الأطفال",
+    "طب الشيخوخة",
+    "تحاليل",
+    "الصيدلية",
+    "العيادة النفسية",
+    "التغذية",
+    "عيادة الأسنان",
+    "حكيم عيون",
+    "أمراض مزمنة",
+    "أمراض نادرة",
+    "الريڤيو",
+  ];
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,48 +97,17 @@ export default function Footer() {
             {/* Sections */}
             <div>
               <h3 className="text-xl font-bold mb-4 text-cyan-300">الأقسام</h3>
-              <ul className="space-y-2 text-sm">
-                <li>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                {categories.slice(0, 8).map((category) => (
                   <a
-                    href="#"
+                    key={category}
+                    href={`/category/${slugify(category)}`}
                     className="hover:text-cyan-300 transition-colors duration-300"
                   >
-                    - شوبزوفي
+                    - {category}
                   </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-cyan-300 transition-colors duration-300"
-                  >
-                    - مستشفياتنا
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-cyan-300 transition-colors duration-300"
-                  >
-                    - منصة الدواء
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-cyan-300 transition-colors duration-300"
-                  >
-                    - سيرة مهنية
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-cyan-300 transition-colors duration-300"
-                  >
-                    - الأقسام الطبية
-                  </a>
-                </li>
-              </ul>
+                ))}
+              </div>
             </div>
 
             {/* User Guide */}
